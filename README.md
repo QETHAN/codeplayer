@@ -1,2 +1,2 @@
-codeplayer
+codeplayer demos
 ==========
