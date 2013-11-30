@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery.easing-1.3.min.js"></script>
+</head>
+<body>
+    <form id="msform">
+        <ul id="progressbar">
+            <li class="active">账户注册</li>
+            <li>社交档案</li>
+            <li>个人信息</li>
+        </ul>
+        <fieldset>
+            <h2 class="fs-title">创建账户</h2>
+            <h3 class="fs-subtitle">这是第一步</h3>
+            <input type="text" name="email" placeholder="邮箱"/>
+            <input type="password" name="pass" placeholder="密码"/>
+            <input type="password" name="cpass" placeholder="确认密码"/>
+            <input type="button" name="ntext" class="next action-button" value="下一步"/>
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">社交档案</h2>
+            <h3 class="fs-subtitle">社交网络账号</h3>
+            <input type="text" name="weibo" placeholder="新浪微博"/>
+            <input type="password" name="facebook" placeholder="Facebook"/>
+            <input type="password" name="twitter" placeholder="Twitter"/>
+            <input type="button" name="previous" class="previous action-button" value="上一步"/>
+            <input type="button" name="ntext" class="next action-button" value="下一步"/>
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">个人信息</h2>
+            <h3 class="fs-subtitle">我们绝对不会出售这些信息</h3>
+            <input type="text" name="name" placeholder="姓名"/>
+            <input type="text" name="phone" placeholder="手机号码"/>
+            <textarea  name="address" placeholder="地址"></textarea>
+            <input type="button" name="previous" class="previous action-button" value="上一步"/>
+            <input type="button" name="submit" class="submit action-button" value="完成"/>
+        </fieldset>
+    </form>
+    <script src="default.js"></script>
+</body>
+</html>
