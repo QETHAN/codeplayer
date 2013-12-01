@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+        #modal {
+            position: absolute;
+            background: rgba(0,0,0,0.2);
+            border-radius: 14px;
+            padding: 8px;
+        }
+        #content {
+            border-radius: 8px;
+            background: #fff;
+            padding: 20px;
+        }
+
+        #close {
+            position: absolute;
+            background: url(close.png) 0 0 no-repeat;
+            width: 24px;
+            height: 27px;
+            display: block;
+            text-indent: -9999px;
+            top: -7px;
+            right: -7px;
+        }
+    </style>
+    <script src="jquery-1.10.2.js"></script>
+    <script>
+        var modal = (function(){
+            var method = {},
+                    $overlay,
+                    $modal,
+                    $content,
+                    $close;
+
+            //append the html
+            $overlay = $('<div id="overlay"></div>');
+            $modal = $('<div id="modal"></div>')
+            $content = $('<div id="content"></div>');
+            $close = $('<a id="close" href="#">close</a>');
+
+            $modal.hide();
+            $overlay.hide();
+            $modal.append($content, $close);
+
+            method.center = function() {
+                var top, left;
+
+                top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+                $modal.css({
+                    top: top + $(window).scrollTop(),
+                    left: left + $(window).scrollLeft()
+                });
+            };
+
+            method.open = function(settings) {
+                $content.empty().append(settings.content);
+
+                $modal.css({
+                    width: settings.width || 'auto',
+                    height: settings.height || 'auto'
+                });
+
+                method.center();
+
+                $(window).bind('resize.modal', function(){setTimeout(method.center,100);});
+
+                $modal.show();
+                $overlay.show();
+            };
+
+            method.close = function() {
+                $modal.hide();
+                $overlay.hide();
+                $content.empty();
+                $(window).unbind('resize.modal');
+            };
+
+            $close.click(function(e){
+                e.preventDefault();
+                method.close();
+            });
+
+            $(document).ready(function(){
+
+                $('body').append($overlay, $modal);
+            });
+
+            return method;
+
+        }());
+
+//        modal.open({content: 'qbyluck'});
+//        modal.open({content: '<p>hello</p>'});
+//        modal.open({content: $("<p>jquery</p>")});
+
+
+        $(document).ready(function(){
+
+//            modal.open({content: '<p>hello</p>'});
+
+            $('a#open').click(function(e){
+                modal.open({content: "Hows it going?"});
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="#" id="open">open</a>
+</body>
+</html>
