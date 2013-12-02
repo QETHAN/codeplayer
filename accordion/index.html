@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $('#accordion h3').click(function(){
+
+                //slide up all
+                $('#accordion ul ul').slideUp();
+
+                if(!$(this).next().is(":visible")) {
+                    $(this).next().slideDown();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="accordion">
+        <ul>
+            <li>
+                <h3><span class="icon-dashboard"></span>公告板</h3>
+                <ul>
+                    <li><a href="#">报告</a></li>
+                    <li><a href="#">搜索</a></li>
+                    <li><a href="#">图片</a></li>
+                    <li><a href="#">设置</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h3><span class="icon-tasks"></span>任务</h3>
+                <ul>
+                    <li><a href="#">今天任务</a></li>
+                    <li><a href="#">紧急</a></li>
+                    <li><a href="#">过期</a></li>
+                    <li><a href="#">设置</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h3><span class="icon-calendar"></span>日历</h3>
+                <ul>
+                    <li><a href="#">年份</a></li>
+                    <li><a href="#">月份</a></li>
+                    <li><a href="#">日期</a></li>
+                    <li><a href="#">团队日历</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h3><span class="icon-heart"></span>偏好</h3>
+                <ul>
+                    <li><a href="#">全局偏好</a></li>
+                    <li><a href="#">搜索</a></li>
+                    <li><a href="#">图片</a></li>
+                    <li><a href="#">设置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
