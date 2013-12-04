@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>tabs</title>
+    <style>
+        * {padding: 0; margin: 0;}
+
+        html {
+            background: url(wood.png) 0 0 repeat;
+            padding: 15px 15px 0;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        p, p3 {
+            margin-bottom: 15px;
+        }
+
+        div {
+            padding: 10px;
+            width: 600px;
+            background: #fff;
+        }
+
+        .tabs {
+            letter-spacing: -0px;
+            word-spacing: -0px;
+            font-size: 0;
+        }
+        .tabs li {
+            list-style: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .tabs a {
+            padding: 5px 10px;
+            display: block;
+            background: #666;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .tabs a.active {
+            background: #fff;
+            color: #000;
+        }
+    </style>
+    <script src="jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            $('ul.tabs').each(function(){
+                var $active,
+                      $content,
+                      $links = $(this).find('a');
+
+                //当前激活的tab
+                $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+
+                $active.addClass('active');
+
+                $content = $($active.attr('href'));
+
+                $links.not($active).each(function(){
+                    $($(this).attr('href')).hide();
+                });
+
+                $(this).on('click', 'a', function(e){
+
+                    $active.removeClass('active');
+                    $content.hide();
+
+                    // 新的 激活tab, content
+                    $active = $(this);
+                    $content = $($(this).attr('href'));
+
+                    $active.addClass('active');
+                    $content.show();
+
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul class="tabs">
+        <li><a href="#tab1">Tab 1</a></li>
+        <li><a href="#tab2">Tab 2</a></li>
+        <li><a href="#tab3">Tab 3</a></li>
+    </ul>
+
+    <div id="tab1">
+        <p>Hi, this is the first tab.</p>
+    </div>
+    <div id='tab2'>
+        <p>This is the 2nd tab.</p>
+    </div>
+    <div id='tab3'>
+        <p>And this is the 3rd tab.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>jQuery左右弹性滑动的导航菜单特效</title>
+    <style type="text/css">
+        body{ font-size:100%; font-family:"Microsoft YaHei","Arial"; background:#fff;}
+        #nav{ position:relative; width:940px; _width:835px; margin:100px auto 0 auto; border-bottom:2px #ddd solid;}
+        #nav .nav-menu{ height:50px;}
+        #nav .nav-menu a{ display:block; float:left; height:50px; padding:0 20px; line-height:50px; color:#666; font-size:14px; text-decoration:none;}
+        #nav .nav-current{ position:absolute; bottom:-2px; height:2px; overflow:hidden; background:#80b600;}
+        body,td,th {
+            font-family: "Microsoft YaHei", Arial;
+        }
+    </style>
+    <script type="text/javascript" src="../../jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            (function(){
+                var $navcur = $(".nav-current");
+                var $nav = $("#nav");
+                var current = ".current";
+                var itemW = $nav.find(current).innerWidth();    //默认当前位置宽度
+                var defLeftW = $nav.find(current).position().left;    //默认当前位置Left值
+//添加默认下划线
+                $navcur.css({width:itemW,left:defLeftW});
+//hover事件
+                $nav.find("a").hover(
+                     function(){
+                        var index = $(this).index();    //获取滑过元素索引值
+                        var leftW = $(this).position().left;    //获取滑过元素Left值
+                        var currentW = $nav.find("a").eq(index).innerWidth();    //获取滑过元素Width值
+                        $navcur.stop().animate({
+                            left: leftW,
+                            width: currentW
+                        },300);
+
+                    },
+                     function(){
+                        $navcur.stop().animate({
+                            left: defLeftW,
+                            width: itemW
+                        },300)
+                    })
+            })();
+        });
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="nav">
+    <div class="nav-menu">
+        <a href="http://www.killer8.com" target="_blank" target="_blank" class="current">首页</a>
+        <a href="http://www.killer8.com" target="_blank" >了解我们</a>
+        <a href="http://www.killer8.com" target="_blank" >产品展示</a>
+        <a href="http://www.killer8.com" target="_blank" >服务报价</a>
+        <a href="http://www.killer8.com" target="_blank" >最新消息</a>
+        <a href="http://www.killer8.com" target="_blank" >联系方式</a>
+        <a href="http://www.killer8.com" target="_blank" >联系方式</a>
+        <a href="http://www.killer8.com" target="_blank" >联系方式</a>
+        <a href="http://www.killer8.com" target="_blank" >联系方式</a>
+        <a href="http://www.killer8.com" target="_blank" >联系方式</a>
+    </div>
+    <div class="nav-current"></div>
+</div>
+</body>
+</html>

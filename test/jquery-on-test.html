@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../jquery-1.10.2.js"></script>
+    <script>
+        //dom加载完后，事件没有注册上
+//        $("#test").on('click',function(){
+//            console.log('232323');
+//        });
+
+        $(function(){
+            $("#test").on('click',function(){
+                console.log('232323');
+            });
+        });
+    </script>
+</head>
+<body>
+        <button id="test">点击</button>
+</body>
+</html>
