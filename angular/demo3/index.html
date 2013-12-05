@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>购物车</title>
+    <script src="../angular.js"></script>
+</head>
+<body ng-controller="CartCtrl">
+    <h1>你的订单</h1>
+    <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input ng-model="item.quantity">
+        <span>{{item.price | currency}}</span>
+        <span>{{item.price * item.quantity | currency}}</span>
+        <button ng-click="remove($index)">删除</button>
+    </div>
+
+    <script>
+        function CartCtrl($scope) {
+            $scope.items = [
+                {title: "可口可乐", quantity: 8, price: 3},
+                {title: "肯德基", quantity: 3, price: 50},
+                {title: "盒饭", quantity: 1, price:15}
+            ];
+
+            $scope.remove = function(index) {
+                $scope.items.splice(index,1);
+            }
+        }
+    </script>
+</body>
+</html>

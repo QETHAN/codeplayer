@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+    <script src="../angular.js"></script>
+</head>
+<body ng-controller="TextCtrl">
+    <p>{{someText.message}}</p>
+
+    <script>
+        var myAppModule = angular.module('myApp',[]);
+
+        myAppModule.controller('TextCtrl', function($scope){
+            var someText = {};
+            someText.message = "开始angular之旅";
+            $scope.someText = someText;
+        });
+    </script>
+</body>
+</html>

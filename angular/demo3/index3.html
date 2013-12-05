@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+        .selected {
+            background-color: lightgreen;
+        }
+    </style>
+    <script src="../angular.js"></script>
+</head>
+<body>
+    <form ng-controller="StartUpController">
+        开始：<input ng-change="computeNeeded()" ng-model="funding.startingEstimate">
+        推荐：{{funding.needed}}
+    </form>
+
+    <div  ng-controller="StudentListCtrl">
+        <ul>
+            <li ng-repeat="student in students">
+                <a href="/student/view/{{student.id}}">{{student.name}}</a>
+            </li>
+        </ul>
+        <button ng-click="insertTom()">插入</button>
+    </div>
+
+    <div ng-controller="MenuCtrl">
+        <button ng-click="toggleMenu()">切换</button>
+        <ul ng-show="menuState.show">
+            <li ng-click="stun()">Stun</li>
+            <li ng-click="disintegrate()">Disintegrate</li>
+            <li ng-click="erase()">Erase</li>
+        </ul>
+    </div>
+
+    <table ng-controller='RestaurantTableController'>
+        <tr ng-repeat='restaurant in directory' ng-click='selectRestaurant($index)'
+            ng-class='{selected: $index==selectedRow}'>
+            <td>{{restaurant.name}}</td>
+            <td>{{restaurant.cuisine}}</td>
+        </tr>
+    </table>
+
+    <div ng-controller="CartController">
+        <div ng-repeat="item in items">
+            <span>{{item.title}}</span>
+            <input ng-model="item.quantity">
+            <span>{{item.price | currency}}</span>
+            <span>{{item.price * item.quantity | currency}}</span>
+        </div>
+        <div>Total: {{bill.totalCart | currency}}</div>
+        <div>Discount: {{bill.discount | currency}}</div>
+        <div>Subtotal: {{bill.subtotal | currency}}</div>
+    </div>
+
+    <script>
+        var myAppModule = angular.module('myApp',[]);
+
+        myAppModule.controller('StartUpController', function($scope){
+            $scope.funding = {startingEstimate: 0};
+
+            $scope.computeNeeded = function() {
+                $scope.funding.needed = $scope.funding.startingEstimate * 10;
+            }
+        });
+
+        var students = [
+            {name: '张三', id:'1'},
+            {name: '李四', id:'2'},
+            {name: '王五', id:'3'}
+        ];
+        myAppModule.controller('StudentListCtrl', function($scope){
+            $scope.students = students;
+
+            $scope.insertTom = function() {
+                console.log('2323');
+                $scope.students.splice(1,0,{name:'哈哈', id:'4'});
+            }
+        });
+
+        myAppModule.controller('MenuCtrl', function($scope){
+            $scope.menuState = {};
+            $scope.menuState.show = false;
+
+            $scope.toggleMenu = function() {
+                $scope.menuState.show = !$scope.menuState.show;
+            }
+        });
+
+        myAppModule.controller('RestaurantTableController', function($scope) {
+            $scope.directory = [{name:'The Handsome Heifer', cuisine:'BBQ'},
+                {name:"Green's Green Greens", cuisine:'Salads'},
+                {name:'House of Fine Fish', cuisine:'Seafood'}];
+            $scope.selectRestaurant = function(row) {
+                $scope.selectedRow = row;
+            };
+        });
+
+
+        myAppModule.controller('CartController', function($scope) {
+            $scope.bill = {};
+            $scope.items = [
+                {title: 'Paint pots', quantity: 8, price: 3.95},
+                {title: 'Polka dots', quantity: 17, price: 12.95},
+                {title: 'Pebbles', quantity: 5, price: 6.95}
+            ];
+
+//            var totalCart = function() {
+//                var total = 0;
+//                for(var i= 0,len=$scope.items.length; i<len; i++) {
+//                    total = total + $scope.items[i].price * $scope.items[i].quantity;
+//                }
+//                $scope.bill.totalCart = total;
+//                $scope.bill.discount = total > 100 ? 10 : 0;
+//                $scope.bill.subtotal = total - $scope.bill.discount;
+//
+//            }
+
+//            $scope.$watch('items', totalCart, true);
+
+              $scope.$watch(function() {
+                var total = 0;
+                for(var i= 0,len=$scope.items.length; i<len; i++) {
+                    total = total + $scope.items[i].price * $scope.items[i].quantity;
+                }
+                $scope.bill.totalCart = total;
+                $scope.bill.discount = total > 100 ? 10 : 0;
+                $scope.bill.subtotal = total - $scope.bill.discount;
+
+            });
+        });
+    </script>
+</body>
+</html>
