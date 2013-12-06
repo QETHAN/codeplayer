@@ -1,0 +1,17 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>ngStyle</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+</head>
+<body>
+    <div style="margin-top:20px;" ng-init="myStyle={}">
+        <input type="button" class="btn btn-primary" value="Set" ng-click="myStyle={color:'red'}">
+        <input type="button" class="btn btn-warning" value="Clear" ng-click="myStyle={}">
+        <br><br>
+        <div ng-style="myStyle">改变css style</div>
+        <pre >myStyle = {{ myStyle }}</pre >
+    </div>
+</body>
+</html>

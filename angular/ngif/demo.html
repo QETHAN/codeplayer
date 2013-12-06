@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>ng-if</title>
+
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+    <div style="margin-top:20px;" ng-controller="Ctrl">
+        <label><input type="checkbox" ng-model="checked" style="margin:0;"> 勾選?</label>
+
+        <div class="alert" ng-show="checked">
+            <strong>使用 ng-show!</strong>
+        </div>
+
+        <!-- 动态 删减 -->
+        <div class="alert alert-success" ng-if="checked">
+            <strong>使用 ng-if=checked</strong>
+        </div>
+
+        <div class="alert alert-success" ng-if="show()">
+            <strong>使用 ng-if=checked</strong>
+        </div>
+    </div>
+</body>
+</html>

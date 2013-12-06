@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <style>
+        .even {
+            color: red;
+        }
+        .odd {
+            color: blue;
+        }
+    </style>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+<div style="margin-top:20px;" ng-controller="Ctrl">
+    <ul>
+        <!--<li ng-repeat="person in friends" ng-class="$index % 2 == 0 ? 'even' : 'odd';">{{ person.name }}</li>-->
+        <li ng-repeat="person in friends" ng-class-even="'even'" ng-class-odd="'odd'">{{person.name}}</li>
+    </ul>
+</div>
+</body>
+</html>
