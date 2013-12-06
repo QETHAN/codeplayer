@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title></title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>
+<!-- 不能有action属性 -->
+<form style="margin-top:20px;" ng-submit="submit()" ng-controller="Ctrl">
+    <label>請輸入你會的技能:</label>
+    <input type="text" ng-model="skill" name="skill" />
+
+    <input type="submit" id="submit" value="加入" />
+    <div>技能 = {{ skills }} </div>
+</form>
+</body>
+</html>
