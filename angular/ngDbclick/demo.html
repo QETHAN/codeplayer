@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>ng-dblclick</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body ng-controller="FriendsCtrl">
+    <div style="margin-top:20px;">
+        <h3>共有 {{ friends.length }} 位朋友</h3>
+        <div ng-repeat="friend in friends" >
+            <button type="button" ng-click="remove($index);">&times;</button>
+
+            <div ng-hide="friend.editing" ng-dblclick="friend.editing=true;">
+                {{ friend.name }} <span>{{ friend.age }} 歲</span>
+            </div>
+            <div ng-show="friend.editing">
+                <input type="text" ng-model="friend.name">
+                <input type="text" ng-model="friend.age">
+                <button ng-click="friend.editing=false;">更新</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Name" ng-model="pName">
+
+        <label class="control-label" for="age">Age:</label>
+        <input type="number" id="age" placeholder="age" ng-model="pAge">
+
+        <br>
+        <button ng-click="add();">添加</button>
+    </div>
+</body>
+</html>
