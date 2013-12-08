@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>filters</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo2.js"></script>
+</head>
+<body>
+<div ng-controller="SelectCtrl">
+    <!--member.name 作为label-->
+
+    <select ng-model="role" ng-options="member.name for (title, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+    <div ng-show="role!=''">選擇的是:{{ role.name+'('+role.age+')' }}</div>
+
+    <select ng-model="role" ng-options="member.name as (title + '-' + member.name + '(' + member.age + ')') for (title, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+    <div ng-show="role!=''">選擇的是:{{ role }}</div>
+
+    <select ng-model="role" ng-options="member.name group by member.age for (title, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <div ng-show="role!=''">選擇的是:{{ role.name }}</div>
+
+    <select ng-model="role" ng-options="member as member.name group by member.age for (title, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+</div>
+</body>
+</html>

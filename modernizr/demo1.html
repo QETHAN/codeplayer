@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>modernizr canvase support</title>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            if(canvasSupported()) {
+                console.log('canvas supported');
+            }
+        };
+
+        function canvasSupported() {
+            var canvas = document.createElement('canvas');
+            return (canvas.getContext && canvas.getContext('2d'));
+        }
+
+//        window.onload = function () {
+//            if (localStorageSupported()) {
+//                alert('local storage supported');
+//            }
+//        };
+//
+//        function localStorageSupported() {
+//            try {
+//                return ('localStorage' in window && window['localStorage'] != null);
+//            }
+//            catch(e) {}
+//            return false;
+//        }
+    </script>
+</body>
+</html>
