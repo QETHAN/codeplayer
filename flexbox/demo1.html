@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css3 弹性盒模型</title>
+    <style>
+        body {
+            display:-ms-flexbox; /* IE 实在太恶心了*/
+            display:-moz-box;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient: horizontal;
+            box-orient: horizontal;
+            width: 400px;
+        }
+
+        div {
+            height: 500px;
+        }
+        #box1 {
+            background: #2f96b4;
+            -moz-box-flex: 2;
+            -webkit-box-flex:2;
+            box-flex:2;
+            -webkit-box-ordinal-group:2;
+            -moz-box-ordinal-group:2;
+        }
+        #box2 {
+            background: #c43c35;
+            -moz-box-flex: 1;
+            -webkit-box-flex:1;
+            box-flex:1;
+            -webkit-box-ordinal-group:2;
+            -moz-box-ordinal-group:2;
+        }
+        #box3 {
+            background: #9b8651;
+            -moz-box-flex: 1;
+            -webkit-box-flex:1;
+            box-flex:1;
+            -webkit-box-ordinal-group:1;
+            -moz-box-ordinal-group:2;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+</body>
+</html>
