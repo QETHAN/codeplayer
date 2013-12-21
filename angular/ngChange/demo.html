@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ng-change</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+    <div>
+        <select ng-model="role" ng-options="member.name as member.name for (title, member) in onepiece">
+            <option value="">--請選擇角色--</option>
+        </select>
+
+        <div ng-show="role!=null">選擇的是:{{ role }}</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>ngClass</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .italic {
+            font-style: italic;
+        }
+    </style>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+    <div style="margin-top:20px;" ng-init="cusClass='red bold';">
+        <!--<div class="{{ cusClass }}">测试 ngClass</div>-->
+        <div ng-class="cusClass">测试 ngClass</div>
+    </div>
+
+    <div style="margin-top:20px;" ng-init="red='red';bold='';italic='italic';">
+        <div ng-class="[red, bold, italic]">男丁格爾 angular.js</div>
+    </div>
+
+    <div style="margin-top:20px;" ng-controller="Ctrl">
+        <div ng-class="cssObj[selectd]">男丁格爾 angular.js</div>
+    </div>
+
+    <div class="well span4" style="margin-top:20px;">
+        <label><input type="checkbox" ng-model="useRed" style="margin:0;"> Red?</label>
+        <label><input type="checkbox" ng-model="useBold" style="margin:0;"> Bold?</label>
+        <label><input type="checkbox" ng-model="useItalic" style="margin:0;"> Italic?</label>
+        <div ng-class="{ red: useRed, bold: useBold, italic: useItalic }">男丁格爾 angular.js</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>页面加载进度显示条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .loading{
+            background:#FF6100;
+            height:5px;
+            position:fixed;
+            top:0;
+            z-index:99999;
+        }
+    </style>
+    <script src="../jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div class="loading"></div>
+<nav class="global-nav clearfix">
+    <a href="###" id="site-nav-btn">导航</a>
+    <ul class="site-nav mobi-hide">
+        <li><a href="http://segmentfault.com/">问答</a></li>
+        <li><a href="http://segmentfault.com/blogs">博客</a></li>
+        <!-- <li><a href="http://segmentfault.com/news">资讯</a></li> -->
+        <li><a href="http://segmentfault.com/tags">标签</a></li>
+        <li><a href="http://segmentfault.com/users">用户</a></li>
+        <li><a href="http://segmentfault.com/badges">徽章</a></li>
+        <li><a href="http://segmentfault.com/events">活动</a></li>
+    </ul>
+    <ul class="user-nav">
+        <li>
+            <a id="login-link" href="http://segmentfault.com/user/login">登录</a>
+        </li>
+        <li>
+            <a href="http://segmentfault.com/user/register">注册</a>
+        </li>
+    </ul>
+</nav><!-- end .global-nav -->
+<header class="site-header">
+    <div class="inner clearfix">
+        <div class="head-name">
+            <a href="http://segmentfault.com/">
+                <img alt="SegmentFault" src="http://s.segmentfault.com/img/logo.png?13.10.21.1" />
+                <strong>问答</strong>
+            </a>
+        </div>
+        <div class="head-search">
+            <form id="search" action="http://segmentfault.com/search">
+                <input type="text" class="text-27 input-search" name="q" autocomplete="off" spellcheck="false" placeholder="搜索问题，标签，用户">
+                <button class="btn-search" type="submit">搜索</button>
+            </form>
+        </div>
+        <ul class="head-nav">
+            <li class="current"><a href="http://segmentfault.com/">技术问答</a></li>
+            <li><a href="http://segmentfault.com/101">新手问答</a></li>
+            <li><a href="http://segmentfault.com/sites">子站问答</a></li>
+        </ul>
+        <div class="head-misc">
+            <span>找不到答案？</span> <a class="btn-f-m action" href="http://segmentfault.com/ask">+ 提问</a>
+        </div>
+    </div>
+</header><!-- end .site-header -->
+<script>
+    $(".loading").animate({'width': '30%'},50);
+</script>
+    <div class="wrap">
+        <div class="inner edge">
+            <div id="main">
+                <div class="tab-nav">
+                    <h2 class="common-title">最新的问题</h2>
+                    <nav class="sub-tab">
+                        <a class="current" href="http://segmentfault.com/">最新的</a>
+                        <a href="http://segmentfault.com/hottest">热门的</a>
+                        <a href="http://segmentfault.com/unanswered">未回答的</a>
+                    </nav>
+                </div>
+                <script>
+                    $(".loading").animate({'width': '50%'},50);
+                </script>
+                <div id="content">
+        <article class="post" id="q-1010000000364886">
+            <div class="status">
+                <span class="answer" title="0 个答案">0</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/xiow" title="xiow" data-tip="n:xiow <cite>&bull;</cite> <strong>6</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/150/107/1501078571-1030000000196651_medium40" alt="xiow" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364886" title="Linux Apache perfork设置 进程数 响应数">Linux Apache perfork设置 进程数 响应数</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 3 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089761" href="http://segmentfault.com/t/apache">apache</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089392" href="http://segmentfault.com/t/linux">linux</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089387" href="http://segmentfault.com/t/php">php</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 5分钟前</span>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364871">
+            <div class="status">
+                <span class="answer" title="0 个答案">0</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/jiyinyiyong" title="题叶" data-tip="n:题叶 <cite>&bull;</cite> <strong>820</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/665/456/665456852-1030000000093283_medium40" alt="题叶" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364871" title="Chrome 里的请求报错 &quot;CAUTION: Provisional headers are shown&quot; 是什么意思?">Chrome 里的请求报错 &quot;CAUTION: Provisional headers are shown&quot; 是什么意思?</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 9 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089706" href="http://segmentfault.com/t/http">http</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089407" href="http://segmentfault.com/t/chrome">chrome</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000090011" href="http://segmentfault.com/t/tcp">tcp</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 18分钟前</span>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364758">
+            <div class="status">
+                <span class="answer answered" title="2 个答案">2</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/linjun1185" title="linjun1185" data-tip="n:linjun1185 <cite>&bull;</cite> <strong>7</strong>"><img class="avatar-40" src="http://s.segmentfault.com/img/user-40.png?13.10.21.1" alt="linjun1185" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364758" title="关于array_udiff_assoc和array_intersect_ukey的问题？">关于array_udiff_assoc和array_intersect_ukey的问题？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 19 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089387" href="http://segmentfault.com/t/php">php</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000364753" href="http://segmentfault.com/t/array_udiff_assoc">array_udiff_assoc</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000364754" href="http://segmentfault.com/t/array_intersect_ukey">array_intersect_ukey</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000364756" href="http://segmentfault.com/t/array_diff_uassoc">array_diff_uassoc</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000364757" href="http://segmentfault.com/t/array_intersect_key">array_intersect_key</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 27分钟前</span>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364814">
+            <div class="status">
+                <span class="answer answered" title="3 个答案">3</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/shinebay" title="shinebay" data-tip="n:shinebay <cite>&bull;</cite> <strong>75</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/325/129/3251299542-1030000000157044_medium40" alt="shinebay" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364814" title="如何通过js改变网址输入框中的网址？">如何通过js改变网址输入框中的网址？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 24 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089436" href="http://segmentfault.com/t/javascript">javascript</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 29分钟前</span>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364644">
+            <div class="status">
+                <span class="answer answered" title="3 个答案">3</span>
+                <span class="vote voted" title="-1 个投票">-1</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/nanxiaobei" title="南小北" data-tip="n:南小北 <cite>&bull;</cite> <strong>9</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/315/675/3156753898_medium40" alt="南小北" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364644" title="请问如何通过 javascript 判断 url 以打开不同大小的窗口？">请问如何通过 javascript 判断 url 以打开不同大小的窗口？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 43 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089436" href="http://segmentfault.com/t/javascript">javascript</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089571" href="http://segmentfault.com/t/html">html</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 30分钟前</span>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364742">
+            <div class="status">
+                <span class="answer answered" title="1 个答案">1</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/yaongphy" title="yaongphy" data-tip="n:yaongphy <cite>&bull;</cite> <strong>10</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/279/487/2794877498-1030000000195330_medium40" alt="yaongphy" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364742" title="MKNetWork 这款第三方框架，哪有比较好的使用案例的文章或代码？求推荐">MKNetWork 这款第三方框架，哪有比较好的使用案例的文章或代码？求推荐</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 14 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089442" href="http://segmentfault.com/t/ios">ios</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000090209" href="http://segmentfault.com/t/objective-c">objective-c</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 1小时前</span>
+                </div>
+            </div>
+        </article>
+        <script>
+            $(".loading").animate({'width': '70%'},50);
+        </script>
+        <article class="post" id="q-1010000000364499">
+            <div class="status">
+                <span class="answer answered-accepted" title="2 个答案">2</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/ithelloworld" title="ithelloworld" data-tip="n:ithelloworld <cite>&bull;</cite> <strong>277</strong>"><img class="avatar-40" src="http://s.segmentfault.com/img/user-40.png?13.10.21.1" alt="ithelloworld" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364499" title="通过 passenger-install-nginx-module 安装的 nginx 和直接安装的 nginx 有什么区别？">通过 passenger-install-nginx-module 安装的 nginx 和直接安装的 nginx 有什么区别？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 58 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000090145" href="http://segmentfault.com/t/nginx">nginx</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000090695" href="http://segmentfault.com/t/passenger">passenger</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000090245" href="http://segmentfault.com/t/ubuntu">ubuntu</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089699" href="http://segmentfault.com/t/ruby">ruby</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089646" href="http://segmentfault.com/t/ruby-on-rails">ruby-on-rails</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 1小时前</span>
+                </div>
+                <div class="p-excerpt excerpt-bg">
+                    <a class="author tip-pop" title="samoay" href="http://segmentfault.com/u/samoay" data-tip="n:samoay <cite>&bull;</cite> <strong>1.2k</strong>"><img class="avatar-32" src="http://sfault-avatar.b0.upaiyun.com/900/286/900286072-2993_small" alt="samoay" /></a>
+                    <p>
+                        这两种启动方式本身来说，对于nginx没太大区别，只是前者使用系统统一的service脚本来启动的。但是基于你的安装方式，我不太确定两者是否使用的同一个nginx安装。判断方式：查看一下 /etc/init.d/nginx 这个脚本的内容，看看大概22行左右，看看nginx路径设置是多少，是否和你第二种直接启动的nginx是一个路径。另外看看N...                            <a href="http://segmentfault.com/q/1010000000364499/a-1020000000364570" class="readmore">阅读全部</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364017">
+            <div class="status">
+                <span class="answer answered-accepted" title="5 个答案">5</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/1437" title="1437" data-tip="n:1437 <cite>&bull;</cite> <strong>10</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/402/237/4022376224-1030000000361796_medium40" alt="1437" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364017" title="一个JS语法的问题">一个JS语法的问题</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 101 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089436" href="http://segmentfault.com/t/javascript">javascript</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 1小时前</span>
+                </div>
+                <div class="p-excerpt excerpt-bg">
+                    <a class="author tip-pop" title="乌鸦" href="http://segmentfault.com/u/wuya" data-tip="n:乌鸦 <cite>&bull;</cite> <strong>41</strong>"><img class="avatar-32" src="http://sfault-avatar.b0.upaiyun.com/207/595/2075953533-1030000000356504_small" alt="乌鸦" /></a>
+                    <p>
+                        &amp;&amp; 和 || 都是短路操作符： {代码...} 大致是这样哈。                            <a href="http://segmentfault.com/q/1010000000364017/a-1020000000364122" class="readmore">阅读全部</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000352218">
+            <div class="status">
+                <span class="answer answered-accepted" title="5 个答案">5</span>
+                <span class="vote voted" title="1 个投票">1</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/zhouyg1992" title="zhouyg1992" data-tip="n:zhouyg1992 <cite>&bull;</cite> <strong>72</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/323/171/3231712179-1030000000140398_medium40" alt="zhouyg1992" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000352218" title="Objective-c成员变量的定义方式？如何写才规范？">Objective-c成员变量的定义方式？如何写才规范？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 254 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000090209" href="http://segmentfault.com/t/objective-c">objective-c</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000170324" href="http://segmentfault.com/t/core-foundation">core-foundation</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089442" href="http://segmentfault.com/t/ios">ios</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000183716" href="http://segmentfault.com/t/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91">移动开发</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 2小时前</span>
+                </div>
+                <div class="p-excerpt excerpt-bg">
+                    <a class="author tip-pop" title="码农白腩肚" href="http://segmentfault.com/u/code_farmer" data-tip="n:码农白腩肚 <cite>&bull;</cite> <strong>100</strong>"><img class="avatar-32" src="http://sfault-avatar.b0.upaiyun.com/417/434/4174347044-1030000000261686_small" alt="码农白腩肚" /></a>
+                    <p>
+                        第二第三种个人感觉是极不规范的。 第一种是比较老式的写法，不过 NSString *_test; 这个就是多余的了，这个是更老式的了，那时候要手写 getter setter 因为有了 synthesize 自动属性合成器以后，这步，Xcode已经帮你做过了。 还帮你写了默认的 getter setter 方法，有下划线就是标识，这个是成元变量，以便于区分 gette...                            <a href="http://segmentfault.com/q/1010000000352218/a-1020000000358876" class="readmore">阅读全部</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000363670">
+            <div class="status">
+                <span class="answer answered" title="1 个答案">1</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/nooper" title="NOOPER" data-tip="n:NOOPER <cite>&bull;</cite> <strong>215</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/546/350/546350814_medium40" alt="NOOPER" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000363670" title="python开发程序自动化部署和包依赖构建？">python开发程序自动化部署和包依赖构建？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 70 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089534" href="http://segmentfault.com/t/python">python</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 2小时前</span>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000364450">
+            <div class="status">
+                <span class="answer answered-accepted" title="3 个答案">3</span>
+                <span class="vote" title="0 个投票">0</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/yaashion_xiang" title="Yaashion_向" data-tip="n:Yaashion_向 <cite>&bull;</cite> <strong>18</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/363/386/3633866347-1030000000349205_medium40" alt="Yaashion_向" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000364450" title="怎么在tableView:didSelectRowAtIndexPath:获得cell的引用？">怎么在tableView:didSelectRowAtIndexPath:获得cell的引用？</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 28 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089442" href="http://segmentfault.com/t/ios">ios</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000089498" href="http://segmentfault.com/t/iphone">iphone</a>,                             </li>
+                        <li>
+                            <a data-tid="1040000000090209" href="http://segmentfault.com/t/objective-c">objective-c</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 2小时前</span>
+                </div>
+                <div class="p-excerpt excerpt-bg">
+                    <a class="author tip-pop" title="Idea2Real" href="http://segmentfault.com/u/idea2real" data-tip="n:Idea2Real <cite>&bull;</cite> <strong>36</strong>"><img class="avatar-32" src="http://sfault-avatar.b0.upaiyun.com/186/376/1863767061-1030000000355340_small" alt="Idea2Real" /></a>
+                    <p>
+                        用 -(UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath 方法                            <a href="http://segmentfault.com/q/1010000000364450/a-1020000000364467" class="readmore">阅读全部</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        <article class="post" id="q-1010000000358190">
+            <div class="status">
+                <span class="answer answered" title="8 个答案">8</span>
+                <span class="vote voted" title="-2 个投票">-2</span>
+            </div>
+            <div class="p-summary">
+                <a class="author tip-pop" href="http://segmentfault.com/u/charles_305995" title="Charles" data-tip="n:Charles <cite>&bull;</cite> <strong>295</strong>"><img class="avatar-40" src="http://sfault-avatar.b0.upaiyun.com/143/635/1436356287-1030000000305995_medium40" alt="Charles" /></a>
+                <h2><a href="http://segmentfault.com/q/1010000000358190" title="请推荐一个用于django开发的ide">请推荐一个用于django开发的ide</a></h2>
+                <div class="meta">
+                    <span class="views"><i class="i-view"></i> 201 次浏览</span>&nbsp;
+                    <ul class="meta-tags">
+                        <li><i class="i-tag"></i></li>
+                        <li>
+                            <a data-tid="1040000000089564" href="http://segmentfault.com/t/django">django</a>                            </li>
+                    </ul>&nbsp;
+                    <span class="datetime"><i class="i-time"></i> 2小时前</span>
+                </div>
+            </div>
+        </article>
+        </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".loading").animate({'width': '100%'},50);
+        $(function(){
+            $(".loading").fadeOut();
+        });
+    </script>
+
+</body>
+</html>

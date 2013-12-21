@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <style>
+        input[type="text"].myFocus {
+            background-color: yellow;
+        }
+        input[type="text"].myBlur {
+            background-color: red;
+        }
+    </style>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+</head>
+<body>
+<div style="margin-top:20px;" >
+   <input type="text" ng-class="{myFocus: focus, myBlur: blur}" ng-focus="focus=true" ng-blur="blur=true">
+</div>
+</body>
+</html>

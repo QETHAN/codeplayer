@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>filters</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+<div ng-controller="SelectCtrl">
+    <!--member 作为label-->
+    <select ng-model="role" ng-options="i as member for (i,member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <select ng-model="role" ng-options="i as i + ':' + member for (i, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <select ng-model="role" ng-options="member group by i for (i, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <select ng-model="role" ng-options="i as member group by i for (i, member) in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <div ng-show="role!=''">選擇的是:{{ role }}</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>filters</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo2.js"></script>
+</head>
+<body>
+<div ng-controller="SelectCtrl">
+    <!--member.name 作为label-->
+
+    <select ng-model="role" ng-options="member.name for member in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+    <div ng-show="role!=''">選擇的是:{{ role.name+'('+role.age+')' }}</div>
+
+    <!--member.name 作为 label 对应的值， 即 role的值-->
+    <select ng-model="role" ng-options="member.name as (member.name + '(' + member.age + ')') for member in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <!--显示时， role.xxx 获取member的属性，否则是一个member对象-->
+    <select ng-model="role" ng-options="member as member.name group by member.age for member in onepiece">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <!--track by 若是值一樣的話，就都會以第一個為主。-->
+    <select ng-model="role"
+            ng-options="member as member.name group by member.age for member in onepiece track by member.age">
+        <option value="">--請選擇角色--</option>
+    </select>
+
+    <!--<div ng-show="role!=''">選擇的是:{{ role }}</div>-->
+</div>
+</body>
+</html>

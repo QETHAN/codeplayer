@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>         <html lang="zh" class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html lang="zh" class="no-js lt-ie9 lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="zh" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>ele demo</title>
+    <meta name="viewport" content="width=device-width">
+    <!--360浏览器会选择chrome内核-->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="style.css">
+    <script src="../lib/modernizr/modernizr.min.js"></script>
+    <script src="jquery-1.10.2.js"></script>
+    <script src="plugins.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+
+<!--[if lt IE 8]>
+<p class="browsehappy">您正使用过时的浏览器访问饿了么。建议您<a href="http://browsehappy.com/">升级浏览器</a>来获得更好的用户体验，发现一个全新的demo。</p>
+<![endif]-->
+
+<!-- Opening Animation -->
+<!--占满一屏 即使resize -->
+<div id="index" class="opening">
+    <script>
+        if(window.innerHeight) {
+            document.getElementById("index").style.height = window.innerHeight;
+        } else {
+            document.getElementById('index').style.height = document.documentElement.clientHeight + 'px';
+        }
+    </script>
+    <h1 class="opening-logo">ele  demo</h1>
+    <div id="start_browse" class="opening-arrow" data-0="opacity: 1;" data-200="opacity:0;">
+        <p class="arrow-hint">滑动以继续</p>
+        <div class="arrow-icon"></div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<!-- About -->
+<section id="about" class="about">
+    <!-- Header Banner -->
+    <header id="site_header" class="site-header">
+        <div class="container group">
+            <a class="logo-eleme" href="#index" role="logo">ele.me</a>
+            <div class="header-qrcode">
+                <span class="header-toggle icon-header-qr" href="">微信</span>
+                <figure class="header-dropdown">
+                    <img class="qr" src="header-qr.png" alt="饿了么微信" />
+                    <figcaption>
+                        <span class="title">饿了么招聘</span>
+                        <br /><span class="caption">扫一扫，加我微信</span>
+                    </figcaption>
+                </figure>
+            </div>
+            <nav class="site-nav">
+                <a class="snav-link" href="#about">关于饿了么</a>
+                <a class="snav-link" href="#recruitment">招聘</a>
+                <a class="snav-link" href="#faq">FAQ</a>
+                <a class="snav-link" href="#welfare">生活福利</a>
+                <a class="snav-link" href="#atittude">饿态度</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <ul class="main-intro group">
+            <li class="main-intro-block">
+                <div class="symbol-sign atom"><i></i></div>
+                <h3 class="intro-title">中国餐饮业数字化领跑者</h3>
+                <p class="intro-content">饿了么整合了线下餐饮品牌和线上网络资源，用户可以方便地通过手机、电脑搜索周边餐厅。</p>
+            </li>
+            <li class="main-intro-block">
+                <div class="symbol-sign chart"><i></i></div>
+                <h3 class="intro-title">全国领先的O2O订餐平台</h3>
+                <p class="intro-content">饿了么整合线上线下资源，为用户提供便捷服务极致体验，同时为餐厅提供一体化运营解决方案。</p>
+            </li>
+            <li class="main-intro-block">
+                <div class="symbol-sign cloud"><i></i></div>
+                <h3 class="intro-title">12个城市20,000家加盟餐厅</h3>
+                <p class="intro-content">业务覆盖上海、北京、广州、深圳、杭州、南京、天津、苏州、厦门、福州、哈尔滨、长春，加盟餐厅已超过20,000家。</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- About Company -->
+<section class="about-company">
+    <div class="bg-extend bg-left"></div>
+    <div class="bg-extend bg-right"></div>
+    <div class="container">
+        <article class="about-company-block">
+            <h1 class="about-title">关于 Demo</h1>
+            <p
+                    class="about-content">demo秉承“极致、激情、创新”的信仰，致力于推进整个餐饮行业的数字化发展进程。向用户传达一种健康、年轻化的饮食习惯和生活方式。除了为用户创造价值，饿了么率先提出C2C网上订餐的概念，为线下餐厅提供 一体化运营的解决方案。</p>
+        </article>
+        <ol class="timeline-chart">
+            <li class="time-point point1" data-1100="height:60px;" data-1520="height:106px;">
+                <time class="time">2009.4</time>
+                <div class="detail-wrapper">
+                    <div class="time-point-detail detail1">
+                        <h4 class="title"><span class="statistic">1.0</span>版本</h4>
+                        <p class="desc">demo网站<br />正式上线</p>
+                    </div>
+                </div>
+            </li>
+            <li class="time-point point2" data-1100="height:60px;" data-1520="height:115px;">
+                <time class="time">2010.12</time>
+                <div class="detail-wrapper">
+                    <div class="time-point-detail detail2">
+                        <h4 class="title">
+                            <span class="statistic">10000</span>家</h4>
+                        <p class="desc">订餐范围覆盖全上海，合作餐厅超过10000家</p>
+                    </div>
+                </div>
+            </li>
+            <li class="time-point point3" data-1100="height:60px;" data-1520="height:162px;">
+                <time class="time">2011.5</time>
+                <div class="detail-wrapper">
+                    <div class="time-point-detail detail3">
+                        <h4 class="title"><span class="statistic">2000</span>万</h4>
+                        <p class="desc">2011年交易额<br />突破2000万</p>
+                    </div>
+                </div>
+            </li>
+            <li class="time-point point4" data-1100="height:60px;" data-1520="height:126px;">
+                <time class="time">2012.11</time>
+                <div class="detail-wrapper">
+                    <div class="time-point-detail detail4">
+                        <h4 class="title"><span class="statistic">200</span>人</h4>
+                        <p class="desc">业务覆盖8大城市，<br />团队达到200人</p>
+                    </div>
+                </div>
+            </li>
+            <li class="time-point point5" data-1100="height:60px;" data-1520="height:212px;">
+                <time class="time">2012.12</time>
+                <div class="detail-wrapper">
+                    <div class="time-point-detail detail5">
+                        <h4 class="title"><span class="statistic">6</span>亿</h4>
+                        <p class="desc">2012年在线交易<br />规模达到6亿元</p>
+                    </div>
+                </div>
+            </li>
+            <li class="time-point future-point point6">
+                <time class="time">2013</time>
+            </li>
+            <li class="time-point future-point point7">
+                <time class="time">2014</time>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- About Us -->
+<section class="about-us">
+    <div class="container">
+        <article class="about-us-block">
+            <h1 class="about-title">我们是这样一群人</h1>
+            <p class="about-content">人才是demo最宝贵的财富，我们为每位e友提供良好的发展空间，让大家与公司一起快速成长。<br />对于所有岗位的e
+                友，均要求具备三个品质：激情、责任心、执行力。</p>
+        </article>
+        <div class="about-carousel">
+            <div id="carousel_about">
+                <div class="about-carousel-block">
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/01.jpg" alt="李磊 研发工程师" />
+                        <div class="staff-bio">
+                            <h5 class="name">李磊 研发工程师</h5>
+                            <p>饿了么的<mark class="mark">每个人都会有着自己专精的能力</mark>，而相互学习，共同研究，向着同一个目标奋斗的氛围才是我最在意的。</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/02.jpg" alt="王泰舟 网站平台负责人" />
+                        <div class="staff-bio">
+                            <h5 class="name">王泰舟 网站平台负责人</h5>
+                            <p>我们想要打造<mark class="mark">小而美的团队</mark>，“这种小不是小村庄的那种小，而是全明星阵容的那种小”。在这里每个人独当一面，如果你喜欢这样的挑战，就应该来和我们聊一聊。</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/03.jpg" alt="陈育龙 移动平台负责人" />
+                        <div class="staff-bio">
+                            <h5 class="name">陈育龙 移动平台负责人</h5>
+                            <p>发自内心地<mark class="mark">认可并喜欢自已做的事</mark>，坚持一步一个脚印地做好每一件事，当你停下来回头望望自已时，会发现曾经的自已弱爆了！</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/04.jpg" alt="胡雯 管理培训生" />
+                        <div class="staff-bio">
+                            <h5 class="name">胡雯 管理培训生</h5>
+                            <p>我们关怀每一个人对美食的欲望，希望<mark class="mark">用科技的手段改变生活的方式</mark>，<mark class="mark">极致高效美好</mark>。我跟随我相信的，这些东西远在外卖之上。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-carousel-block">
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/05.jpg" alt="王路坤 市场经理" />
+                        <div class="staff-bio">
+                            <h5 class="name">王路坤 市场经理</h5>
+                            <p>这里有<mark class="mark">先进的公司发展理念</mark>，有<mark class="mark">年轻的团队</mark>，还有<mark class="mark">无限的机遇与挑战</mark>，年轻的你还在等什么？来饿了么挥洒激情与青春、收获梦想与历练吧！</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/06.jpg" alt="顾葛栋 品牌合作经理" />
+                        <div class="staff-bio">
+                            <h5 class="name">顾葛栋 品牌合作经理</h5>
+                            <p>从受尽餐厅老板的白眼到老板们青睐有加，从<mark class="mark">刚进公司只拿基本工资到奖金过万，只用了一年的时间</mark>。最后说一句，与餐厅老板“斗”，其乐无穷。</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/07.jpg" alt="冒鹏程 上海城市副总经理" />
+                        <div class="staff-bio">
+                            <h5 class="name">冒鹏程 上海城市副总经理</h5>
+                            <p>饿了么给我平台，让我成长，一年的时间晋升到城市副总经理。<mark class="mark">饿了么永远把自己定义为创业型公司，把加入进来的每位战友都定义为创业者</mark>。</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/08.jpg" alt="李小芬 财务主管" />
+                        <div class="staff-bio">
+                            <h5 class="name">李小芬 财务主管</h5>
+                            <p>这里有怀揣梦想的人，这里有努力奋斗的人，<mark class="mark">饿了么有做世界一流订餐平台的决心，也有对未来发展的无比信心</mark>！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-carousel-block">
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/09.jpg" alt="容航艳 客服主管" />
+                        <div class="staff-bio">
+                            <h5 class="name">容航艳 客服主管</h5>
+                            <p>在饿了么让我感触最深的就是<mark class="mark">团结</mark>，加上<mark class="mark">浓郁的让人“窒息”的奋斗气场</mark>，我一直被这里的气氛感染着…慢慢的，我真的爱上了这份工作。</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/10.jpg" alt="王娟 客服专员" />
+                        <div class="staff-bio">
+                            <h5 class="name">王娟 客服专员</h5>
+                            <p>现在我每天的工作是致力为每一位用户提供<mark class="mark">优质、专业、高效的服务</mark>体验！在这里我们一起工作，一起疯玩，一起…太多的欢乐，哈哈，还在彷徨犹豫么？</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/11.jpg" alt="杨培培 行政专员" />
+                        <div class="staff-bio">
+                            <h5 class="name">杨培培 行政专员</h5>
+                            <p>在饿了么，如果你痴迷于技术研究，公司会为你提供便利的工作条件；如果你对管理工作感兴趣，更不用担心，因为公司在快速发展，<mark class="mark">不断有新的机会产生</mark>，只要你做足了准备。</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img class="staff-photo" src="img/staffs/12.jpg" alt="祁明凤 绩效培训专员" />
+                        <div class="staff-bio">
+                            <h5 class="name">祁明凤 绩效培训专员</h5>
+                            <p>加入饿了么已有大半年，不论是工作本身还是公司的整体氛围，都带给我很多不一样的体验，这是一个<mark class="mark">年轻、充满梦想和激情的团队</mark>！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pagination_about" class="pagination"></div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

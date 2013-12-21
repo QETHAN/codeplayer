@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="CalApp">
+<head>
+    <title>module</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+    <form style="margin-top:20px;" ng-controller="CalCtrl">
+        <div>
+            <input type="number" class="input-small" ng-model="num1">
+            <span>*</span>
+            <input type="number" class="input-small"ng-model="num2" disabled>
+            <span>=</span>
+            {{ num1 * num2}}
+        </div>
+    </form>
+</body>
+</html>

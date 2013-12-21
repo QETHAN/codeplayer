@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>filters</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo3.js"></script>
+</head>
+<body>
+<div style="margin-top:20px;" ng-controller="TableFilterCtrl">
+    <div>
+        <label>搜索:</label>
+        <input type="text" ng-model="search">
+        <!--<label>姓名:</label>-->
+        <!--<input type="text" ng-model="search.name">-->
+
+        <!--<label>技能:</label>-->
+        <!--<input type="text" ng-model="search.skills">-->
+
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <td>編號</td>
+            <td>名稱</td>
+            <td>年齡</td>
+            <td>專長</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="friend in friends">
+            <td>{{ $index + 1 }}</td>
+            <td>{{ friend.name }}</td>
+            <td>{{ friend.age }}</td>
+            <td>{{ friend.skills.join(', ') }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

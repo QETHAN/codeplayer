@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>filters</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo2.js"></script>
+</head>
+<body>
+<div style="margin-top:20px;" ng-controller="TableFilterCtrl">
+    <div>
+        <label>搜索:</label>
+        <input type="text" ng-model="search.$">
+        <label>姓名:</label>
+        <input type="text" ng-model="search.name">
+
+        <label>技能:</label>
+        <input type="text" ng-model="search.skills">
+        <label>相同:<input type="checkbox" ng-model="strict"></label>
+
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <td>編號</td>
+            <td>名稱</td>
+            <td>年齡</td>
+            <td>專長</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr ng-repeat="friend in friends | filter:search">-->
+        <!--严格匹配-->
+        <tr ng-repeat="friend in friends | filter:search:strict">
+            <td>{{ $index + 1 }}</td>
+            <td>{{ friend.name }}</td>
+            <td>{{ friend.age }}</td>
+            <td>{{ friend.skills.join(', ') }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+<div style="margin-top:20px;" ng-controller="Ctrl">
+    {{ text | clean:'?' }}
+</div>
+</body>
+</html>

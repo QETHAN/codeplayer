@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ngSrc</title>
+    <script src="../../lib/angular-1.2.3/angular.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+    <div style="margin-top:20px;" ng-init="guess='guess.png';">
+        <div>
+            <button ng-click="guess='abgne.tw.jpg';">圖片改為 abgne.tw.jpg</button>
+            <button ng-click="guess='guess.png';">圖片改為 guess.png</button>
+        </div>
+
+        <div>
+            <!--ng-href 如果没有解析成功，则为文字；否则是一个链接-->
+            <a ng-href="img/{{guess}}">瀏覽圖片</a>
+
+            <!--如果直接用src属性，angular载入时就会去加载一次图片，造成无谓的请求错误；ng-src就可以避免-->
+            <img ng-src="{{xxx}}">
+        </div>
+    </div>
+</body>
+</html>
