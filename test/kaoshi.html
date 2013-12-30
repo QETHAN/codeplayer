@@ -1,0 +1,131 @@
+
+<!-- saved from url=(0047)http://localhost/zshh/index.php/first/view/id/2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <title>河南中升华调查问卷系统</title>
+    <style>
+        body {
+            background: none repeat scroll 0% 0% rgb(239, 239, 239);
+            word-wrap: break-word;
+        }
+        body, input, button, select, textarea, th, td {
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        body, h1, h2, h3, h4, p, ul, ol, dl, dd {
+            margin: 0px;
+            padding: 0px;
+        }
+        body, input, textarea, select {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+            font-family: inherit;
+            font-weight: normal;
+            line-height: 20px;
+            margin: 0px;
+            text-rendering: optimizelegibility;
+        }
+        #main{
+            width: 740px;
+            min-height: 200px;
+            background: none repeat scroll 0% 0% rgb(255, 255, 255);
+            padding: 30px 40px;
+            margin: 10px auto;
+            border: 1px solid rgb(219, 219, 219);
+        }
+        .mtop {
+            margin-top: 30px;
+        }
+        .wjtitle h1 {
+            color: rgb(76, 76, 76);
+            font-size: 18px;
+            text-align: center;
+        }
+        .wjintro, .wjintro p {
+            font-size: 16px;
+        }
+        .wjhr {
+            width: 100%;
+            height: 3px;
+            background-color: rgb(204, 204, 205);
+        }
+        #question_box{
+            border: 1px solid #ccc;
+            margin-top: 50px;
+            padding: 10px;
+        }
+        .second{
+            margin: 5px 0px;
+            text-indent: 2em;
+        }
+    </style>
+</head><body>&lt;<script>
+    $(function () {
+        $('#myForm').on('submit',function (e) {
+
+            var inputs = $('.myinput');
+            inputs.each(function(index,item){
+
+                if($(item).find("input[type=radio]").length) {
+                    var radios = $(item).find("input[type=radio]:checked");
+                    if(radios.length == 0) {
+                        alert("没有选择");
+                        e.preventDefault();
+                        return false;
+                    }
+                }
+
+                if($(item).find("input[type=checkbox]").length) {
+                    var checkboxs = $(item).find("input[type=checkbox]:checked");
+                    if(checkboxs.length == 0) {
+                        alert("没有选择2");
+                        e.preventDefault();
+                        return false;
+                    }
+                }
+
+                var textarea = $(item).find("textarea");
+                if(textarea && $.trim(textarea.val()).length==0) {
+                    alert("没有填写textarea");
+                    e.preventDefault();
+                    return false;
+                }
+
+
+            });
+
+
+            return true;
+
+        })
+    })
+</script>&gt;
+
+
+<div id="main">
+    <div>
+        <div class="wjtitle mtop">
+            <h1>啊啊啊</h1>
+        </div>
+        <div class="second">中文！</div>
+        <div class="wjintro desc_begin mtop">
+            <p>欢迎参加本次答题</p>
+        </div>
+        <div class="wjhr mtop"></div>
+    </div>
+    <div id="question_box">
+        <form action="http://localhost/zshh/index.php/first/dosubmit" method="post" id="myForm">
+            <h3 style="color:red;margin:5px">1.哦哦哦哦</h3><dl><div class="myinput"><dt style="color:blue;margin: 5px 0px">1.我妈妈说你是大坏蛋！</dt><input type="radio" name="answerdb[2+1+1]" value="a" style="border:0px;"> a、是的 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[2+1+1]" value="b" style="border:0px;"> b、确实是 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[2+1+1]" value="c" style="border:0px;"> c、不是 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[2+1+1]" value="d" style="border:0px;"> d、真不是 &nbsp;&nbsp;&nbsp;</div><div class="myinput"><dt style="color:blue;margin: 5px 0px">2.我是大好人</dt><input type="radio" name="answerdb[12+1+2]" value="a" style="border:0px;"> a、是的 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[12+1+2]" value="b" style="border:0px;"> b、不是 &nbsp;&nbsp;&nbsp;</div><div class="myinput"><dt style="color:blue;margin: 5px 0px">3.啦啦啦</dt><input type="radio" name="answerdb[13+1+3]" value="a" style="border:0px;"> a、啊 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[13+1+3]" value="b" style="border:0px;"> b、我 &nbsp;&nbsp;&nbsp;</div></dl><h3 style="color:red;margin:5px">2.哈哈哈哈</h3><dl><div class="myinput"><dt style="color:blue;margin: 5px 0px">4.人妖为何物？</dt><input type="radio" name="answerdb[9+1+4]" value="a" style="border:0px;"> a、妖 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[9+1+4]" value="b" style="border:0px;"> b、人 &nbsp;&nbsp;&nbsp;<input type="radio" name="answerdb[9+1+4]" value="c" style="border:0px;"> c、不人不妖 &nbsp;&nbsp;&nbsp;</div><div class="myinput"><dt style="color:blue;margin: 5px 0px">5.她是美女吗？</dt><input type="checkbox" name="answerdb[10+2+5][]" value="a" style="border:0px;"> a、是 &nbsp;&nbsp;&nbsp;<input type="checkbox" name="answerdb[10+2+5][]" value="b" style="border:0px;"> b、不是 &nbsp;&nbsp;&nbsp;<input type="checkbox" name="answerdb[10+2+5][]" value="c" style="border:0px;"> c、真不是 &nbsp;&nbsp;&nbsp;<input type="checkbox" name="answerdb[10+2+5][]" value="d" style="border:0px;"> d、肯定是 &nbsp;&nbsp;&nbsp;<input type="checkbox" name="answerdb[10+2+5][]" value="e" style="border:0px;"> e、确实是 &nbsp;&nbsp;&nbsp;</div><div class="myinput"><dt style="color:blue;margin: 5px 0px">6.我辈岂是蓬蒿人的上一句是什么？</dt><span style="position: relative; top: -32px">答: </span><textarea name="answerdb[11+3+6]" style="width:370px;"></textarea></div></dl><input type="hidden" name="amount" value="6">
+            <input type="hidden" name="qid" value="2">
+            <input type="submit" name="submit" value="submit">
+        </form>
+    </div>
+</div>
+
+
+<div style="float:left;clear:both;text-align:left;font-size:11px;color:#888;width:95%;margin:10px;padding:10px;background:#F5F5F5;border:1px dotted #778855;z-index:100"><div style="float:left;width:100%;"><span style="float:left;width:200px;"><b>运行信息</b>( <font color="red">0.0629 </font>秒):</span><span onclick="this.parentNode.parentNode.style.display=&#39;none&#39;" style="cursor:pointer;float:right;width:35px;background:#500;border:1px solid #555;color:white">关闭X</span></div><br><ul style="margin:0px;padding:0 10px 0 10px;list-style:none">［自动包含］<li>&nbsp;&nbsp;&nbsp;&nbsp;<b> Structure </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> Prourl </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> Smarty </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> MyTpl </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> Action </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> Common </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> FirstAction </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> DB </b>类</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<b> Dpdo </b>类</li><br>［系统信息］<li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">没有开启页面缓存!</font>（但可以使用）</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">没有使用Memcache</font>(为程序的运行速度，建议使用Memcache)</li><li>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">开启会话Session </font>(但没有使用Memcache，开启Memcache后自动使用)</li><li>&nbsp;&nbsp;&nbsp;&nbsp;会话ID:f9d8fbf2ba8aec98abbdeddfb946d359</li><li>&nbsp;&nbsp;&nbsp;&nbsp;当前访问的控制器类在项目应用目录下的: <b>./home/controls/first.class.php</b> 文件！</li><li>&nbsp;&nbsp;&nbsp;&nbsp;使用模板 <b> first/view.html </b></li><br>［SQL语句］<li>&nbsp;&nbsp;&nbsp;&nbsp;表<b>zsh_cat</b>结构：id,title,pid,path</li><li>&nbsp;&nbsp;&nbsp;&nbsp;[用时<font color="red">0.0018</font>秒] - SELECT title FROM zsh_cat where id='2' LIMIT 1</li><li>&nbsp;&nbsp;&nbsp;&nbsp;表<b>zsh_subject</b>结构：id,catid,stype,stitle,config,wid</li><li>&nbsp;&nbsp;&nbsp;&nbsp;表<b>zsh_detail</b>结构：id,wid,detail</li><li>&nbsp;&nbsp;&nbsp;&nbsp;[用时<font color="red">0.0019</font>秒] - SELECT detail FROM zsh_detail WHERE wid='2' LIMIT 1</li><li>&nbsp;&nbsp;&nbsp;&nbsp;[用时<font color="red">0.0003</font>秒] - SELECT id,title,pid,path FROM zsh_cat where id='2' LIMIT 1</li><li>&nbsp;&nbsp;&nbsp;&nbsp;[用时<font color="red">0.0004</font>秒] - SELECT id,title,pid,path FROM zsh_cat WHERE path like '%2%' ORDER BY id ASC</li><li>&nbsp;&nbsp;&nbsp;&nbsp;[用时<font color="red">0.0004</font>秒] - SELECT id,catid,stype,stitle,config,wid FROM zsh_subject WHERE catid='7' ORDER BY id ASC</li><li>&nbsp;&nbsp;&nbsp;&nbsp;[用时<font color="red">0.0004</font>秒] - SELECT id,catid,stype,stitle,config,wid FROM zsh_subject WHERE catid='9' ORDER BY id ASC</li></ul></div></body></html>
