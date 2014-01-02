@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>左右浮动</title>
+    <style>
+        ul {
+            width: 500px;
+        }
+        ul li {
+            list-style: none;
+            border: 1px solid red;
+            width: 200px;
+            margin: 20px 20px 0 0;
+            height: 300px;
+        }
+
+        .l_col {
+            float: left;
+            /*clear: left;*/
+        }
+        .r_col {
+            float: right;
+            clear: right;
+            height: 400px;
+        }
+
+        ul:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="l_col"></li>
+        <li class="l_col" style="height: 400px;"></li>
+        <li class="l_col"></li>
+        <li class="r_col"></li>
+    </ul>
+</body>
+</html>
