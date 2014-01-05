@@ -90,7 +90,7 @@
                 }
 
                 var textarea = $(item).find("textarea");
-                if(textarea && $.trim(textarea.val()).length==0) {
+                if(textarea.length && $.trim(textarea.val()).length==0) {
                     alert("没有填写textarea");
                     e.preventDefault();
                     return false;
