@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<!-- scale = perspective / (perspective-translateZ) -->
+<head>
+    <title>translateZ</title>
+    <style>
+        #container {
+            -webkit-perspective: 500px;
+            -webkit-perspective-origin: 50% 50%;
+            /*-webkit-transform-style: preserve-3d;*/
+
+            height: 400px;
+            border: 1px solid red;
+            background-color: rgba(255,0,0,0.1);
+        }
+
+        .subject {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border: 1px solid blue;
+            background-color: rgba(0,0,255,0.1);
+        }
+        .scale {
+            -webkit-transform: scale(2.0);
+        }
+        .translate {
+            -webkit-transform: translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="subject"></div>
+    <div class="subject scale"></div>
+    <div class="subject translate"></div>
+</div>
+</body>
+</html>

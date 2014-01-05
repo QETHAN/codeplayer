@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>positioned</title>
+    <style>
+        div,p,em {
+            margin: 10px;
+            padding: 10px;
+            background-color: white;
+            border-left: 1px solid gray;
+            border-right: 2px solid #000000;
+            border-top: 1px solid gray;
+            border-bottom: 2px solid #000000;
+        }
+        #canvas {
+            background-color: gold;
+        }
+        .static {position: static;}
+        .relative {
+            position: relative;
+            left: auto;
+            top: auto;
+            bottom: auto;
+            right: auto;
+        }
+        .absolute {
+            position: absolute;
+            left: 35%;
+            top: -40px;
+        }
+
+        .fixed1 {
+            position: fixed;
+            z-index: 20;
+            right: 5px;
+            bottom: 35px;
+        }
+        .fixed2 {
+            position: fixed;
+            z-index: 10;
+            right: 0px;
+            bottom: 0px;
+            width: 100px;
+            margin: 100px;
+        }
+
+        .offset {
+            bottom: -15px;
+            left: -20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Positioned</h1>
+    <div class="relative" id="canvas">
+        <p class="static">Static Positioned</p>
+        <p class="static">This text contains relatively positioned span that is
+            <span class="relative offset">offset</span>from its normal position.
+        </p>
+        <em class="absolute">Absolutely Positioned</em>
+        <img class="fixed1" src="../img/yangtuo.jpg" alt=""/>
+        <p class="fixed2">Fixed Positioned</p>
+    </div>
+</body>
+</html>

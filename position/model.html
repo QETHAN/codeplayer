@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>positioning models</title>
+    <style>
+        .centered {
+            width: 380px;
+            margin:0 auto;
+        }
+        .static {
+            position: static;
+        }
+        /* 不影响其他元素布局*/
+        .absolute {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+        }
+        .fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 5px;
+        }
+        /* 在自己原有 position上 移动，原有空间还在,不会影响相邻元素的位置状态*/
+        .relative {
+            position: relative;
+            top: 10px;
+            left: 20px;
+        }
+        .float {
+            /*float: right;*/
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Positioning Models</h1>
+    <div class="section">
+        <h2>Before</h2>
+        <p>
+            <span>Static</span>
+            <span>Absolute</span>
+            <span>Fixed</span>
+            <span>Relative</span>
+            <span>Float</span>
+            <span>Relative Float</span>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>After</h2>
+        <p class="relative centered">
+            <span class="static centered">Static</span>
+            <span class="absolute">Absolute</span>
+            <span class="fixed">Fixed</span>
+            <span class="relative">Relative</span>
+            <span class="float">Float</span>
+            <span class="relative float">Relative Float</span>
+        </p>
+    </div>
+</body>
+</html>
