@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 2014-1-9 firefox support only -->
+        <script type="application/javascript;version=1.7">
+
+             for(var i=0;i<9;i++) {
+
+            }
+            console.log('var------>'+i);
+
+//let 把 i 作用域限制了
+            for(let i=0;i<4;i++) {
+                console.log('let');
+            }
+            console.log('let------>'+i); //输出 9
+
+
+        </script>
+    </head>
+</html>

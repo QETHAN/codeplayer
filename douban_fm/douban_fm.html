@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <title>douban.fm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, "microsoft yahei", "微软雅黑", Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #6D7270;
+        }
+        a,img {
+            border: 0;
+            outline: none;
+        }
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .wrapper {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            float: right;
+            clear: right;
+            margin-top: 10px;
+        }
+        ul {
+            list-style: none;
+        }
+        ul li {
+            display: inline-block;
+            padding: 10px 10px;
+        }
+
+        .logo {
+            clear: both;
+        }
+        .fm-bg {
+            background-color: #E1E8E5;
+            height: 279px;
+            width: 100%;
+            position: absolute;
+            top: 169px;
+            left: 0;
+            z-index: -2;
+        }
+
+        .leftNav {
+            display: inline-block;
+            width: 300px;
+            min-height: 300px;
+            margin-top: 80px;
+            padding: 10px;
+        }
+
+        .leftNav ul li {
+            display: block;
+            /*text-align: center;*/
+            height: 38px;
+            width: 220px;
+            text-indent: 20px;
+            transition: background .2s linear;
+            -webkit-transition: background .2s linear;
+            -moz-transition: background .2s linear;
+            -o-transition: background .2s linear;
+            background: rgba(198,211,205,0.5);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#50c6d3cd,endColorstr=#50c6d3cd);
+            _background: #c6d3cd;
+            margin: 15px 0 0 0;
+        }
+
+        .personalMHz {
+            margin-bottom: 30px;
+        }
+
+        .listen {
+            position: relative;
+        }
+        .listen li {
+            background-color: #9dd6c5 !important;
+        }
+
+        /* 正在收听的 */
+        .listen span {
+            background: url("images/ic_star.png") 0 0 no-repeat;
+            display: block;
+            width: 32px;
+            height: 38px;
+            position: absolute;
+            left: 221px;
+            top: 0px;
+        }
+        .try-tips {
+            color: #888;
+            width: 220px;
+            height: 38px;
+            margin-top: 20px;
+            margin-bottom: -20px;
+            position: relative;
+        }
+        .try-tips .line {
+            display: block;
+            border-bottom: 1px solid #999;
+            width: 160px;
+            position: absolute;
+            left: 60px;
+            top: 9px;
+        }
+
+        .player {
+            width: 514px;
+            height: 245px;
+            float: right;
+            background: #fff;
+            -moz-box-shadow: -1px 0px 5px rgba(0,0,0,.2),1px 1px 5px rgba(0,0,0,.2);
+            box-shadow: -1px 0px 5px rgba(0,0,0,.2),1px 1px 5px rgba(0,0,0,.2);
+        }
+        .player .cover,
+        .player .content {
+            display: inline-block;
+        }
+
+        .player .cover {
+            float: left;
+        }
+
+        .player .content {
+            width: 260px;
+            height: 100%;
+            position: relative;
+        }
+        .player .content .pause {
+            position: absolute;
+            left: 230px;
+            top: -2px;
+        }
+        .pause {
+            display: inline-block;
+            width: 25px;
+            height: 28px;
+        }
+        .title {
+            margin: 40px 0 0 40px;
+        }
+
+        .name {
+            padding: 20px 0 0 40px;
+        }
+
+        .progress {
+            height: 2px;
+            width: 200px;
+            background-color: red;
+            margin-left: 40px;
+            margin-top: 10px;
+        }
+
+        .timeLeft {
+            text-align: right;
+            margin-right: 30px;
+            margin-top: 2px;
+        }
+
+        .operation {
+            margin-top: 30px;
+            text-align: right;
+            /*margin-right: 20px;*/
+        }
+        .operation img {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper clearfix">
+        <div class="nav">
+            <ul>
+                <li>用户名</li>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <li>累计收听x首歌</li>
+                <li>加红心x首</li>
+                <li>收藏兆赫x个</li>
+                <li>用户名</li> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <li>升级到pro</li>
+            </ul>
+        </div>
+        <div class="logo">
+            <img src="images/logo.png">
+        </div>
+
+        <div class="leftNav">
+             <ul class="personalMHz">
+                 <li>
+                     我的私人兆赫
+                 </li>
+                 <li>
+                     我的红心兆赫
+                 </li>
+
+             </ul>
+              <ul class="listen clearfix">
+                   <li>
+                       华语MHz
+                   </li>
+                   <span></span>
+               </ul>
+
+              <div class="try-tips">
+                    <span>试试这些</span>
+                    <span class="line"></span>
+              </div>
+
+              <ul class="listen clearfix">
+                  <li>我爱乡村音乐 MHz</li>
+                  <span></span>
+              </ul>
+              <ul class="">
+                  <li>我爱乡村音乐 MHz</li>
+                  <span></span>
+              </ul>
+              <ul class="">
+                  <li>我爱乡村音乐 MHz</li>
+                  <span></span>
+              </ul>
+        </div>
+
+        <div class="fm-bg"></div>
+
+        <div class="player clearfix">
+            <div class="cover">
+                <img src="images/player-cover.png">
+            </div>
+            <div class="content">
+                <div class="pause">
+                    <img src="images/player_pause.png">
+                </div>
+                <div class="title">
+                    <h2>苏打绿</h2>
+                    <h6>&lt;无与伦比的美丽&gt;</h6>
+                </div>
+
+                <div class="name">
+                    小情歌
+                </div>
+
+                <div class="progress"></div>
+
+                <div class="timeLeft">
+                    <span>-1:20</span>
+                </div>
+
+                <div class="operation">
+                    <img src="images/ic_like.png">
+                    <img src="images/ic_delete.png">
+                    <img src="images/ic_next.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
