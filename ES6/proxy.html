@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>proxy</title>
+</head>
+<body>
+    <script>
+        var logger = function(obj, info) {
+            return Proxy.create({
+                get: function get(receiver, prop) {
+                    info('geting '+prop);
+                    return obj[prop];
+                },
+                set: function set(receiver, prop, value) {
+                    info('setting '+prop+' to '+value+':was '+obj[prop]);
+//                    debugger;
+                    obj[prop] = value;
+                }
+            });
+        }
+
+        var object = {a: 'some value', b: 22};
+        object = logger(object, function info(msg) {
+            console.log(msg);
+        });
+
+        document.write(object.a);
+        object.a = 'new value';
+        document.write(object.a);
+    </script>
+</body>
+</html>
