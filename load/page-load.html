@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>页面加载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .loading-mask {
+            background-color: #da4f49;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="loading-mask">
+    页面加载中...
+</div>
+<div>
+    在即将过去的一周，大众点评CEO张涛的一封内部邮件在业界被广泛传播。
+    这是低调的张涛首次授权把内部邮件如此高调地让外界知道，在邮件里面张涛极力强调“激情”，主张“不搞和谐”，
+    对比过去的十年大众点评的中庸和谐文化，此番变化不可谓不大。张涛在邮件里面提到大众点评在酒店业想成为中国的tripadvisor，
+    只有2014、15两年的时间；但其实这句话可以再放大一点，2014、15两年，大众点评不成功便成仁，而这并不是危言耸听。
+
+    大众点评在过去十年为生活服务行业（餐饮为主）做了基础的信息整合和评价筛选，
+    但它自己却没能踩着团购的风口迅速由信息模式顺利转为交易模式；互联网一日千里，
+    只晚几个月进军团购的大众点评之后就一直处在团购跟随者的角色，
+    而2011年大规模融资后采取固守大城市的战略让大众点评在2013年不得不面对苦果：三四线城市美团优势明显，
+    大众点评打入进去的成本非常大。
+</div>
+<script>
+    window.onload = function() {
+
+        var loading_mask = document.querySelector('.loading-mask');
+
+        setTimeout(function(){
+            loading_mask.style.opacity = 0;
+        },2000);
+
+    }
+</script>
+</body>
+</html>
