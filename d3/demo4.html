@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>div data</title>
+    <style>
+
+    </style>
+    <script src="d3.v3.min.js"></script>
+</head>
+<body>
+    <script>
+        var dataset = [];
+        for(var i=0; i< 21; i++) {
+            var newNum = Math.floor(Math.random()*30);
+            dataset.push(newNum);
+        }
+        console.log(dataset);
+        var w = 500;
+        var h = 200;
+        var padding = 1;
+        var svg = d3.select("body").append('svg')
+                .style('width',w)
+                .style('height',h);
+        var rects = svg.selectAll('rect')
+                .data(dataset)
+                .enter()
+                .append('rect');
+
+
+            rects.transition()
+                .attr('x',function(d,i){
+                    return i*(w/dataset.length-padding);
+                })
+                    .attr('y',h)
+                    .each("start",function() {
+                        d3.select(this).transition()
+                                .attr('y',function(d){
+                                    return h - d*4;
+                                })
+                                .attr('width',20)
+                                .attr('height',function(d){
+                                    return d*4;
+                                })
+                                .attr('fill',function(d){
+                                    return "rgb(0,0,"+(d*10)+")";
+                                })
+                    });
+
+        svg.selectAll('text')
+                .data(dataset)
+                .enter()
+                .append('text')
+                .attr('x',function(d,i){
+                    return i * (w/dataset.length-padding) + (w/dataset.length-padding)/2;
+                })
+                .attr('y',function(d,i){
+                    return h - d * 4 - 5;
+                })
+                .text(function(d,i){
+                    return d;
+                })
+                .attr('text-anchor','middle');
+
+    </script>
+</body>
+</html>
