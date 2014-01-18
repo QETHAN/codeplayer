@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jsAnim</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        #foo,
+        #object {
+            background-color: lightslategrey;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        #object {
+            background-color: teal;
+            left: 200px;
+        }
+    </style>
+    <script src="jsAnim.js"></script>
+
+</head>
+<body>
+    <div id="foo">
+
+    </div>
+    <div id="object"></div>
+<script>
+    var manager = new jsAnimManager(40);
+    var anim = manager.createAnimObject("foo");
+    var foo = document.getElementById('foo');
+    anim.add({
+         property: Prop.top,
+            from: foo.getBoundingClientRect().top,
+           to: 500,
+            duration: 1000,
+            ease: jsAnimEase.parabolicPos,
+            loop: 1
+//             onLoop: function() {alert('finished one loop')},
+//             onComplete: function() {alert('done animating')}
+    });
+
+    manager.registerPosition("object", false);
+    var anim2 = manager.createAnimObject("object");
+    var el = document.getElementById("object");
+    anim2.add({
+        property: Prop.positionSemicircle(false),
+        from: {x:0,y:400},
+        to: {x:0,y:0},
+        duration: 1000,
+        ease: jsAnimEase.linear,
+        loop: 1
+//             onLoop: function() {alert('finished one loop')},
+//             onComplete: function() {alert('done animating')}
+    });
+
+    anim2.add({
+        property: Prop.opacity,
+        from: 1,
+        to: 0,
+        duration: 200,
+        ease: jsAnimEase.linear,
+        loop: 1
+//             onLoop: function() {alert('finished one loop')},
+//             onComplete: function() {alert('done animating')}
+    });
+
+    //Set the position of the object to (0,400)
+//    el.setPosition(0, 400);
+
+</script>
+</body>
+</html>

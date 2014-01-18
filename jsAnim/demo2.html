@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>斜线运动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .foo {
+            background-color: teal;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+        .line-400 {
+            background-color: #24748c;
+            width: 1px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+            left: 432px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="line-400"></div>
+    <div id="foo" class="foo"></div>
+
+    <script>
+        var target = {x:432,y:600};
+        var speed = 90;
+
+        var foo = document.getElementById('foo');
+
+        var x = parseInt(window.getComputedStyle(foo,null).left.slice(0,-2),10);//200px--->200
+        var y = parseInt(window.getComputedStyle(foo,null).top.slice(0,-2),10);
+        foo.style.left = x + 'px';
+        foo.style.top = y +'px';
+
+        var deltaX = Math.ceil((target.x - x)/speed);
+        var deltaY = Math.ceil((target.y - y)/speed);
+        var timerX = null;
+        var timerY = null;
+
+//        当前时间为t，路程的改变值为c，持续的时间为d，初始位置为b
+        function nowPosition(t,c,d,b){
+            return c*(t/=d)*t+b;
+            //return c*t/d+b;
+        }
+
+        timer = setInterval(function(){
+
+            if(x<target.x) {
+//                if(x+deltaX > target.x) {
+//                    var offset = target.x - x;
+//                    console.log('---move2-->'+x);
+//                    foo.style.left = parseInt(foo.style.left,10)+Math.ceil(offset/speed)+'px';
+//                } else {
+//                    x += deltaX;
+//                    console.log('---move-->'+x);
+//                    foo.style.left = parseInt(foo.style.left,10)+deltaX+'px';
+//                }
+                foo.style.left = new nowPosition(0,target.x-200,40,0);
+
+            }
+
+            if(y<target.y) {
+                if(y+deltaX > target.y) {
+                    var offset = target.y - y;
+                    console.log('---movey-->'+x);
+                    foo.style.top = parseInt(foo.style.top,10)+Math.ceil(offset/speed)+'px';
+                } else {
+                    y += deltaY;
+                    foo.style.top = parseInt(foo.style.top,10)+deltaY+'px';
+                }
+            }
+
+//            if(x > target.x) {
+//                console.log('----->'+x);
+//                foo.style.left = parseInt(target.x)+'px';
+//            }
+//            if(y > target.y) {
+//                foo.style.top = parseInt(target.y)+'px';
+//            }
+
+            if(x>=target.x && y>=target.y) {
+                console.log('---end-->'+x);
+                console.log('---end-->'+y);
+                clearInterval(timer);
+                return;
+            }
+
+        },17);
+
+    </script>
+</body>
+</html>
