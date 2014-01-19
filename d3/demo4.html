@@ -3,64 +3,60 @@
 <head>
     <title>div data</title>
     <style>
+        body {
+            padding: 10px;
+            background: #000;
+        }
 
+        .charts {
+            margin: 200px 0 0 300px;
+            position: relative;
+        }
+
+        div.bar {
+            display: inline-block;
+            background: #333;
+            /*margin-right: 10px;*/
+            color: #fff;
+            font-family: Arial;
+            font-size: 12px;
+            position: absolute;
+            bottom: 0;
+        }
     </style>
     <script src="d3.v3.min.js"></script>
 </head>
 <body>
-    <script>
-        var dataset = [];
-        for(var i=0; i< 21; i++) {
-            var newNum = Math.floor(Math.random()*30);
-            dataset.push(newNum);
-        }
-        console.log(dataset);
-        var w = 500;
-        var h = 200;
-        var padding = 1;
-        var svg = d3.select("body").append('svg')
-                .style('width',w)
-                .style('height',h);
-        var rects = svg.selectAll('rect')
-                .data(dataset)
-                .enter()
-                .append('rect');
+<div class="charts"></div>
+<script>
+    var dataset = [];
+    for (var i = 0; i < 21; i++) {
+        var newNum = Math.floor(Math.random() * 30);
+        dataset.push(newNum);
+    }
+
+    d3.select('div.charts').selectAll('div')
+            .data(dataset)
+            .enter()
+            .append('div')
+            .attr('class', 'bar')
+            .transition()
+            .delay(function (d, i) {
+                return i / dataset.length * 1000
+            })
+            .delay(function(d, i){
+                return i / dataset.length * 3000
+            })
+            .duration(1000)
+            .style('left', function(d,i){
+                return i * 24 + 'px';
+            })
+            .style('width', '20px')
+            .style('height', function (d) {
+                return d * 4 + 'px';
+            });
 
 
-            rects.transition()
-                .attr('x',function(d,i){
-                    return i*(w/dataset.length-padding);
-                })
-                    .attr('y',h)
-                    .each("start",function() {
-                        d3.select(this).transition()
-                                .attr('y',function(d){
-                                    return h - d*4;
-                                })
-                                .attr('width',20)
-                                .attr('height',function(d){
-                                    return d*4;
-                                })
-                                .attr('fill',function(d){
-                                    return "rgb(0,0,"+(d*10)+")";
-                                })
-                    });
-
-        svg.selectAll('text')
-                .data(dataset)
-                .enter()
-                .append('text')
-                .attr('x',function(d,i){
-                    return i * (w/dataset.length-padding) + (w/dataset.length-padding)/2;
-                })
-                .attr('y',function(d,i){
-                    return h - d * 4 - 5;
-                })
-                .text(function(d,i){
-                    return d;
-                })
-                .attr('text-anchor','middle');
-
-    </script>
+</script>
 </body>
 </html>
