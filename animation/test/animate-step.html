@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>animate step test</title>
+    <style>
+        ul {
+
+            width: 400px;
+            height: 400px;
+            list-style: none;
+        }
+        li {
+            background: teal;
+            opacity: 0;
+            height: 0;
+        }
+    </style>
+    <script src="../../jquery-1.10.2.js"></script>
+</head>
+<body>
+    <ul>
+        <li id="li"></li>
+    </ul>
+    <script>
+        $( "li" ).animate({
+            opacity: .5,
+            height: "50%"
+        }, {
+            duration: 1000,
+            easing: 'swing',
+            step: function( now, fx ) {
+                var data = fx.elem.id + " " + fx.prop + ": " + now;
+                $( "body" ).append( "<div>" + data + "</div>" );
+            }
+        });
+    </script>
+</body>
+</html>
