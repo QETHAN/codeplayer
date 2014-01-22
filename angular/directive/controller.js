@@ -2,14 +2,15 @@
  * Created by QETHAN on 14-1-22.
  */
 
-//var appMoudule = angular.module('app',[]);
-//appMoudule.directive('ngbkFocus', function(){
-//	return {
-//		link: function(scope,element,attrs,controller){
-//			element[0].focus();
-//		}
-//	}
-//});
+var appMoudule = angular.module('app',[]);
+appMoudule.directive('ngbkFocus', function(){
+	return {
+		link: function(scope,element,attrs,controller){
+			console.log(attrs);
+			element[0].focus();
+		}
+	}
+});
 function SomeController($scope) {
 	$scope.message = {text: 'nothing2 clicked yet'};
 
