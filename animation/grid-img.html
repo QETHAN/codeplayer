@@ -56,7 +56,8 @@
                 delay = Math.random()*1000;
                 $(this).delay(delay).animate({opacity:0},{
                     step: function(n){
-                        scale = 1 - n;
+                        console.log('------->'+n);
+                        scale = 1 + n;
                         $(this).css('transform', 'scale('+scale+')');
                     },
                     duration:1000
@@ -72,7 +73,7 @@
                 $(this).delay(delay).animate({opacity:1},{
                     step: function(n) {
                         //rotating the images on the Y axis from 360deg to 0deg
-                        ry = (1-n)*360;
+                        ry = (1+n)*360;
                         //tranalating the images from 1000px to 0px
                         tz = (1-n)*1000;
                         $(this).css("transform", "rotateY("+ry+"deg) translateZ("+tz+"px)");
