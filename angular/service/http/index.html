@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="Shopping">
+<head>
+    <title></title>
+    <script src="../../angular.js"></script>
+</head>
+<body>
+     <h1>Shop</h1>
+    <table ng-controller="shoppingCtrl">
+        <tr ng-repeat="item in items">
+        <td>{{item.tittle}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price | currency}}</td>
+        </tr>
+    </table>
+
+<script>
+    var shopping = angular.module('Shopping',[]);
+    var scope = null;
+
+    function shoppingCtrl($scope, $http) {
+       scope = $scope;
+       $http.jsonp('http://127.0.0.1:3000/product?callback=jsonp_callback');
+    };
+
+    function jsonp_callback(data) {
+        scope.items = data;
+    }
+</script>
+</body>
+</html>

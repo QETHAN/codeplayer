@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>directive</title>
+    <script src="../angular.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="SomeController">
+    <button ng-click="clickUnfocused">
+        Not Focused
+    </button>
+    <button ngbk-focus ng-click="clickFocused">
+        in Focused
+    </button>
+    <div>{{message.text}}</div>
+</body>
+</html>
