@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>regex group</title>
+</head>
+<body>
+    <script>
+        var re = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g;
+        var tpl = "for(var index in this.skills){";
+
+
+        var match = tpl.match(re);
+        console.log(match);
+
+    </script>
+</body>
+</html>

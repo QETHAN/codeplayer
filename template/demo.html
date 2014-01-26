@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>js template</title>
+    <script src="template.js"></script>
+</head>
+<body>
+    <script type="text/template" id="template">
+        <p>Hello, my name is <%this.name%>.
+            <% for(var i=0;i<12;i++) {
+                    <span>i</span>
+               } %>
+            I\'m <%this.age%> years old.
+        </p>
+    </script>
+
+    <script>
+        var tpl = document.getElementById("template").textContent;
+        var data = {
+            name: 'abc',
+            age: 23
+        };
+        document.write(TemplateEngine(tpl,data));
+    </script>
+</body>
+</html>
