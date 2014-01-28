@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	header
+		h1 Guthub
+
+	div(butterbar) Loading...
+
+	.container
+		.row
+			.col-md-2
+				//sidebar
+				#focus
+					a(href="/#/new") New Recipe
+				div
+					a(href="/#/") Recipe List
+			.col-md-10
+				div(ng-view)

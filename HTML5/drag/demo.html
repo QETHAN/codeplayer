@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>drag</title>
+    <style>
+        #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+    </style>
+    <script>
+        function allowDrop(e) {
+            e.preventDefault();
+            console.log('---->onDragOver');
+        }
+        function dragstart(e) {
+            e.dataTransfer.setData("Text", e.target.id);
+        }
+        function dragend(e) {
+            console.log('----->onDragEnd');
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            console.log('--->drop');
+        }
+    </script>
+</head>
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img id="drag1" src="yangtuo.jpg" draggable="true" ondragstart="dragstart(event)" ondragend="dragend(event)">
+</body>
+</html>
