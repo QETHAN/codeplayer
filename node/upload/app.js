@@ -9,7 +9,6 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var formidable = require('formidable');
-
 var app = express();
 
 // all environments
@@ -29,10 +28,19 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'html')));
 
+var whitelist = ['http://127.0.0.1:63342', 'http://example2.com'];
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+app.all('*', function(req, res, next) {
+	if(whitelist.indexOf(req.headers.origin) != -1) {
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	}
+	next();
+});
 
 app.get('/', routes.index);
 app.get('/drag',function(req,res){
