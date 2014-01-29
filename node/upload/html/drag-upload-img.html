@@ -116,7 +116,7 @@
             holder.ondrop = function (e) {
                 this.className = '';
                 e.preventDefault();
-                if(e.dataTransfer.files[0].size > 2*1024) {
+                if(e.dataTransfer.files[0].size > 2*1024*1024) {
                     console.log("文件太大了");
                     return;
                 }
