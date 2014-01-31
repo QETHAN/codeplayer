@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--总结：1. 父元素的高度为0，子元素也会显示。层叠，独立个体。
+             2. 父元素display:none, 子元素跟着消失。
+    -->
+    <title>高度测试</title>
+    <style>
+        .box {
+            background-color: #0055cc;
+            width: 600px;
+            height: 200px;
+            margin-left: 200px;
+            position: relative;
+            overflow: hidden;
+            /*display: none;*/
+        }
+        .abs {
+            position: fixed;
+            top: 20px;
+            left: -50px;
+            width: 80px;
+            height:580px;
+            background-color: #4C3845;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="abs">
+
+        </div>
+    </div>
+</body>
+</html>
