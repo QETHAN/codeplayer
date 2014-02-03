@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>桌面通知</title>
+</head>
+<body>
+
+<input type="button" value="显示通知" onclick="checkPermissionAndShow()">
+
+<script>
+    window.Notifications = window.Notifications || window.webkitNotifications;
+
+    function checkPermissionAndShow() {
+        var permissionLevel = window.Notifications.checkPermission();
+
+        if(permissionLevel == 0) {
+            console.log('已授权...');
+            showNotification();
+        } else if(permissionLevel == 1) {
+            console.log('待授权...');
+            //回调这个函数本身，再去判断permissionLevel
+            window.Notifications.requestPermission(checkPermissionAndShow);
+        } else {
+            console.log('已禁止...');
+        }
+    }
+
+    function showNotification() {
+        var newNotification = Notifications.createNotification(
+                'yao50.jpg',
+                '桌面通知',
+                '桌面通知 demo'
+        );
+
+        newNotification.show();
+    }
+</script>
+</body>
+</html>

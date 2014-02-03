@@ -1,0 +1,54 @@
+#main p {
+  color: #00ff00;
+  width: 97%; }
+  #main p .redbox {
+    background-color: #ff0000;
+    color: #000; }
+
+#main {
+  width: 97%; }
+  #main p, #main div {
+    font-size: 2em; }
+    #main p a, #main div a {
+      font-weight: bold; }
+  #main pre {
+    font-size: 3em; }
+
+a {
+  font-weight: bold;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  body.firefox a {
+    font-weight: normal; }
+
+#main {
+  color: black; }
+  #main a {
+    font-weight: bold; }
+    #main a:hover {
+      color: red; }
+
+.funky {
+  font: 2px/3px;
+    font-family: fantasy;
+    font-size: 30em;
+    font-weight: bold; }
+
+#main {
+  width: 5em; }
+
+body.firefox .header:before {
+  content: 'hello'; }
+
+#main {
+  content: "Non-null content"; }
+
+p {
+  width: 100%; }
+
+#main .example {
+  color: red; }
+
+#sidebar {
+  width: 240px; }
