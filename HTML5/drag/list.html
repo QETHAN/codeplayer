@@ -1,9 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>图片展示</title>
+    <style>
+
+    </style>
 </head>
 <body>
+    <div class="img-timeline">
+        <!-- 时间线 -->
+        <div class="timeline">
+            <ul class="content">
+                <li class="item">
+                    <a href="#">2014</a>
+                    <ul class="sub-content">
+                        <li class="sub-item">
+                            <a href="#" class="active">1月</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="#">2013</a>
+                </li>
+                <li class="item">
+                    <a href="#">2012</a>
+                </li>
+                <li class="item">
+                    <a href="#" class="active">2011</a>
+                </li>
+                <li class="item">
+                    <a href="#">2010</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="img-content">
+            <li class="item">
+                <span class="item-pin">5日</span>
+                <ul class="sub-content">
+                    <li class="sub-item">
+                        <span class="sub-item-pin"></span>
+                        <span class="sub-item-time">23:35</span>
+                        <img width="600" height="100" src="yangtuo.jpg">
+                    </li>
+                    <li class="sub-item">
+                        <span class="sub-item-pin"></span>
+                        <span class="sub-item-time">23:35</span>
+                        <img width="600" height="100" src="yangtuo.jpg">
+                    </li>
+                </ul>
+            </li>
 
+            <li class="item">
+                <span class="item-pin">4日</span>
+                <ul class="sub-content">
+                    <li class="sub-item">
+                        <span class="sub-item-pin"></span>
+                        <span class="sub-item-time">23:35</span>
+                        <img width="600" height="100" src="yangtuo.jpg">
+                    </li>
+                    <li class="sub-item">
+                        <span class="sub-item-pin"></span>
+                        <span class="sub-item-time">23:35</span>
+                        <img width="600" height="100" src="yangtuo.jpg">
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- 图片拖拽区域 -->
+        <section class="drag">
+            <header>
+                <h1>拖拽上传</h1>
+            </header>
+
+            <style>
+
+            </style>
+            <article>
+                <div id="holder">
+                </div>
+                <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br>
+                    <input type="file"></label></p>
+                <p id="filereader">File API & FileReader API not supported</p>
+                <p id="formdata">XHR2's FormData is not supported</p>
+                <p id="progress">XHR2's upload progress isn't supported</p>
+                <p><span style="display:block;margin-bottom: 10px;">上传进度: </span><progress id="uploadprogress" min="0" max="100" value="0"></progress><span id="uploadNum">0</span>%</p>
+            </article>
+            <script>
+                var holder = document.getElementById('holder'),
+                        tests = {
+                            filereader: typeof FileReader != 'undefined',
+                            dnd: 'draggable' in document.createElement('span'),
+                            formdata: !!window.FormData,
+                            progress: "upload" in new XMLHttpRequest
+                        },
+                        support = {
+                            filereader: document.getElementById('filereader'),
+                            formdata: document.getElementById('formdata'),
+                            progress: document.getElementById('progress')
+                        },
+                        acceptedTypes = {
+                            'image/png': true,
+                            'image/jpeg': true,
+                            'image/gif': true
+                        },
+                        progress = document.getElementById('uploadprogress'),
+                        progressNum = document.getElementById('uploadNum'),
+                        fileupload = document.getElementById('upload');
+
+                "filereader formdata progress".split(' ').forEach(function(api){
+                    if(tests[api] === false) {
+                        support[api].className = 'fail';
+                    } else {
+                        support[api].className = 'hidden';
+                    }
+                });
+
+                function previewfile(file) {
+                    if(tests.filereader === true && acceptedTypes[file.type] === true) {
+                        var reader = new FileReader();
+                        reader.onload = function(event) {
+                            var image = new Image();
+                            image.src = event.target.result;
+                            image.width = 250;
+                            holder.appendChild(image);
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        hodler.innerHTML += '<p>Uploaded '+file.name+' ' + (file.size ? (file.size/1024|0) + 'K' : '')+'</p>';
+                    }
+                }
+
+
+                function readfiles(files) {
+                    var formData = tests.formdata ? new FormData() : null;
+                    for(var i=0; i<files.length; i++) {
+                        if(tests.formdata) {
+                            //TODO 对于 input file 验证文件大小
+                            console.log(files[i]);
+                            formData.append('file',files[i]);
+                        }
+                        previewfile(files[i]);
+                    }
+
+                    if(tests.formdata) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST','http://127.0.0.1:3000/upload');
+                        xhr.onload = function() {
+                            progress.value = progressNum.textContent = 100;
+                        }
+
+                        if(tests.progress) {
+                            xhr.upload.onprogress = function(event) {
+                                if(event.lengthComputable) {
+                                    var complete = (event.loaded / event.total * 100 | 0);
+                                    console.log('------>'+complete);
+                                    progress.value = progressNum.textContent = complete;
+                                }
+                            }
+                        }
+
+                        xhr.send(formData);
+                    }
+                }
+
+                if (tests.dnd) {
+                    holder.ondragover = function () { this.className = 'hover'; return false; };
+                    holder.ondragend = function () { this.className = ''; return false; };
+                    holder.ondrop = function (e) {
+                        this.className = '';
+                        e.preventDefault();
+                        if(e.dataTransfer.files[0].size > 2*1024*1024) {
+                            console.log("文件太大了");
+                            return;
+                        }
+                        readfiles(e.dataTransfer.files);
+                    }
+                } else {
+                    fileupload.className = 'hidden';
+                    fileupload.querySelector('input').onchange = function () {
+                        readfiles(this.files);
+                    };
+                }
+
+            </script>
+        </section>
+    </div>
 </body>
 </html>
