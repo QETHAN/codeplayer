@@ -2,7 +2,7 @@
  * Created by QETHAN on 14-2-4.
  */
 
-window.onload = function(){
+document.ready(function(){
 	var holder = document.getElementById('holder'),
 			error = document.getElementById('error'),
 			failFlag = true,
@@ -122,5 +122,5 @@ window.onload = function(){
 			readfiles(this.files);
 		};
 	}
-};
+});
 

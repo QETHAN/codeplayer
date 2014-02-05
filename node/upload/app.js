@@ -45,6 +45,8 @@ app.all('*', function(req, res, next) {
 app.get('/', routes.list);
 app.get('/checkSameImg/:name', checkSameNameImg);
 app.post('/upload', routes.upload);
+app.get('/page',routes.page);
+app.get('/date',routes.date);
 
 //如果有同名的图片，就提醒修改图片名字
 function checkSameNameImg(req,res) {

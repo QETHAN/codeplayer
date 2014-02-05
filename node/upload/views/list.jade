@@ -17,30 +17,23 @@ block content
 					a(href="#",class="active") 2011
 				li.item
 					a(href="#") 2010
+		//显示年月日fixed
+		#nyr(class='nyr')
+			span#year.year 2014年
+			span#month.month 02月
+			span#date.date 07日
 		ul.img-content
-			li.item
-				span.item-pin 5日
-				ul.sub-content
-					li.sub-item
-						span.sub-item-pin
-						span.sub-item-time 23:35
-						img(width="600",height="100",src="/images/yangtuo.jpg")
-					li.sub-item
-						span.sub-item-pin
-						span.sub-item-time 23:35
-						img(width="600",height="100",src="/images/yangtuo.jpg")
+			each date in data
+				each val, key in date
+					//li.item
+					//	ul.sub-content
+					if(data)
+						for img in val
+							li.item(data-year=img.year,data-month=img.month,data-date=img.date)
+								span.item-pin
+								span.item-time=img.time
+								img(src="/"+img.path)
 
-			li.item
-				span.item-pin 4日
-				ul.sub-content
-					li.sub-item
-						span.sub-item-pin
-						span.sub-item-time 23:35
-						img(width="600",height="100",src="/images/yangtuo.jpg")
-					li.sub-item
-						span.sub-item-pin
-						span.sub-item-time 23:35
-						img(width="600",height="100",src="/images/yangtuo.jpg")
 		//图片拖拽区域
 		section.drag
 			header
