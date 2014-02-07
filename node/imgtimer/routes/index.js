@@ -12,16 +12,26 @@ exports.index = function(req, res){
 };
 
 exports.list = function(req,res){
-//	db.page(1,10,function(data){
-//		res.locals.data = data;
-//		res.render('list');
-//	});
-	db.date(function(data){
-		res.locals.data = data;
+	db.list(1,4,function(data){
+		if(data) {
+			res.locals.data = data;
+			res.locals.lastid = data[data.length-1]._id;
+		}
+		var now = new Date();
+		res.locals.year = now.getFullYear();
+		res.locals.month = now.getMonth()+1;
+		res.locals.date = now.getDate();
 		res.render('list');
 	});
 };
 
+exports.page = function(req,res){
+
+	db.page(req.param('pagenum'),req.param('lastid'),4,function(data){
+		console.log('------>'+req.param('lastid'));
+		res.json(data);
+	});
+}
 exports.upload = function(req,res){
 
 	var tmp_path = req.files.file.path;
@@ -39,26 +49,20 @@ exports.upload = function(req,res){
 			console.log('File uploaded to: ' + UPLOAD_DIR + ' - ' + req.files.file.size + ' bytes');
 			var createAt = new Date(Date.parse(file.lastModifiedDate));
 			//保存到mongo
-			var img = new db.imgModel({'name':file.name,'path':file.name,'year':createAt.getFullYear(),'month':createAt.getMonth()+1,'date':createAt.getDate(),'time':createAt.getHours()+':'+(createAt.getMinutes()>9?createAt.getMinutes():'0'+createAt.getMinutes()),'createAt':createAt});
-			img.save(function(err,img){
-				if(err) {
-					console.log(err);
-					return;
-				}
+			db.getNextSequence('imgid',function(seq){
+				var img = new db.imgModel({'_id':seq,'name':file.name,'path':file.name,'year':createAt.getFullYear(),'month':createAt.getMonth()+1,'date':createAt.getDate(),'time':createAt.getHours()+':'+(createAt.getMinutes()>9?createAt.getMinutes():'0'+createAt.getMinutes()),'createAt':createAt});
+				img.save(function(err,img){
+					if(err) {
+						console.log(err);
+						return;
+					}
+				});
 			});
 		});
 	});
 };
 
-exports.page = function(req,res){
-	db.page(1,10,function(data){
-		res.locals.data = data;
-		res.render('list');
-	});
-	db.date(function(data){
-		res.send(data);
-	});
-}
+
 
 exports.date = function(req,res){
 	db.date(function(data){

@@ -53,7 +53,7 @@ document.ready(function(){
 				//上传图片
 				if(tests.formdata) {
 					xhr = new XMLHttpRequest();
-					xhr.open('POST','http://127.0.0.1:3000/upload');
+					xhr.open('POST','http://127.0.0.1:3000/imgtimer');
 					xhr.onload = function() {
 						progress.value = progressNum.textContent = 100;
 					}
