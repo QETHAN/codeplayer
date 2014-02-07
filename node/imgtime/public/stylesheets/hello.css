@@ -42,13 +42,15 @@ body {
     float: right;
     width: 800px;
     height: 600px;
-    background-color: #fff;
+    text-align: center;
+}
+.wall .content {
+    margin: 0 auto;
 }
 .wall .img {
     float: left;
     width: 200px;
     height: 200px;
-    /*background-color: #3c9f9c;*/
 }
 .wall .img img {
     width: 100%;

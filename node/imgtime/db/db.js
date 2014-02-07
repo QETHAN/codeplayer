@@ -64,9 +64,35 @@ exports.list = function(pagenum,size,cb) {
 		}
 	});
 }
+
 //分页，下拉滚动加载数据
 exports.page = function(pagenum,lastid,size,cb) {
 	imgModel.find({'_id':{$lt:lastid}},{},{limit:size,sort:{'createAt':-1}}, function(err,results){
+		if(err) throw err;
+		if(results.length) {
+			console.log(results);
+			cb(results);
+		} else {
+			cb(null);
+		}
+	});
+}
+
+//照片墙，每次取最新的图片
+exports.wall = function(cb) {
+	imgModel.find({},{},{limit:12,sort:{'createAt':-1}},function(err,results){
+		if(err) throw err;
+		if(results.length) {
+			console.log(results);
+			cb(results);
+		} else {
+			cb(null);
+		}
+	});
+}
+
+exports.new = function(cb) {
+	imgModel.find({},{},{limit:1,sort:{'createAt':-1}},function(err,results){
 		if(err) throw err;
 		if(results.length) {
 			console.log(results);

@@ -8,7 +8,14 @@ var db = require('../db/db');
 var moment = require('moment');
 
 exports.index = function(req, res){
-  res.render('index', { title: '随图' });
+	db.wall(function(data){
+		if(data) {
+			res.locals.data = data;
+		} else {
+			res.locals.data = [];
+		}
+		res.render('index', { title: '图片时间' });
+	});
 };
 
 exports.list = function(req,res){
@@ -26,14 +33,18 @@ exports.list = function(req,res){
 };
 
 exports.page = function(req,res){
-
 	db.page(req.param('pagenum'),req.param('lastid'),4,function(data){
 		console.log('------>'+req.param('lastid'));
 		res.json(data);
 	});
 }
-exports.upload = function(req,res){
 
+exports.new = function(socket){
+	db.new(function(data){
+		socket.emit('pushnew',data);
+	});
+}
+exports.upload = function(req,res){
 	var tmp_path = req.files.file.path;
 	var MAX_UPLOAD_SIZE = 2 * 1024 * 1024;//上传大小
 	var file = req.files.file;
@@ -61,11 +72,3 @@ exports.upload = function(req,res){
 		});
 	});
 };
-
-
-
-exports.date = function(req,res){
-	db.date(function(data){
-		res.send(data);
-	});
-}

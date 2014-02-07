@@ -3,6 +3,8 @@
  */
 
 document.ready(function(){
+	var socket = io.connect('http://127.0.0.1:3000/');
+
 	var holder = document.getElementById('holder'),
 			error = document.getElementById('error'),
 			failFlag = true,
@@ -53,7 +55,7 @@ document.ready(function(){
 				//上传图片
 				if(tests.formdata) {
 					xhr = new XMLHttpRequest();
-					xhr.open('POST','http://127.0.0.1:3000/imgtimer');
+					xhr.open('POST','http://127.0.0.1:3000/imgtime');
 					xhr.onload = function() {
 						progress.value = progressNum.textContent = 100;
 					}
@@ -65,6 +67,8 @@ document.ready(function(){
 								progress.value = progressNum.textContent = complete;
 								if(complete == 100) {
 									if(holder.childNodes[0]) holder.removeChild(holder.childNodes[0]);
+									console.log('------------emit new');
+									socket.emit('new',{'status':'ok'});
 								}
 							}
 						}
