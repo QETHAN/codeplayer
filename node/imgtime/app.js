@@ -7,10 +7,12 @@ var express = require('express');
 var routes = require('./routes');
 var path = require('path');
 var db = require('./db/db.js');
+var MongoStore = require('connect-mongo')(express);
+
 var app = express();
 var server = require('http').createServer(app);
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server,{log: false});
 
 io.sockets.on('connection',function(socket){
 	socket.on('new',function(data){
@@ -35,8 +37,16 @@ app.use(express.logger('dev'));
 //}));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(app.router);
 app.use(express.cookieParser());
+app.use(express.session({
+	secret: 'image',
+	key: 'image',
+	store: new MongoStore({
+			db:'imgdb'
+	}),
+	cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}//30 days
+}));
+app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, 'html')));
@@ -56,18 +66,28 @@ app.all('*', function(req, res, next) {
 });
 
 app.get('/', routes.index);
-app.get('/hello',routes.list);
+app.get('/hello',checkHasInviteCode,routes.list);
 app.get('/checkSameImg/:name', checkSameNameImg);
 app.post('/imgtime', routes.upload);
+app.post('/checkInviteCode',routes.checkInviteCode);
 app.get('/page/:pagenum/last/:lastid',routes.page);
-//app.get('/wall',routes.wall);
+app.get('/admin',routes.admin);
+app.post('/admin',routes.addUser);
 
 //如果有同名的图片，就提醒修改图片名字
-function checkSameNameImg(req,res) {
-	console.log('-------------->check start');
-	db.findSameImg(decodeURIComponent(req.param('name')),res);
+function checkSameNameImg(req,res){
+	db.findSameImg(req.param('name'),res);
 }
 
+//检测是否通过了 邀请码
+function checkHasInviteCode(req,res,next){
+	console.log('------>'+req.session);
+	if(!req.session.hasInviteCode) {
+		res.redirect('/');
+	} else {
+		next();
+	}
+}
 server.listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });

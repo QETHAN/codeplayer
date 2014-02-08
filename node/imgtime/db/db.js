@@ -12,6 +12,7 @@ db.once('open', function callback () {
 	console.log('yeah---------->');
 });
 
+//图片schema
 var imgSchema = mongoose.Schema({
 	_id: {type:Number},
 	name: {type: String},
@@ -24,6 +25,15 @@ var imgSchema = mongoose.Schema({
 });
 var imgModel = exports.imgModel = mongoose.model('imgModel',imgSchema);
 
+//用户schema
+var userSchema = mongoose.Schema({
+	name: {type: String},
+	code: {type: String},
+	createAt: {type: Date}
+});
+var userModel = exports.userModel = mongoose.model('userModel',userSchema);
+
+//id自增器
 var CounterSchema = mongoose.Schema({
 	_id: {type: String},
 	seq: {type: Number}
@@ -39,6 +49,8 @@ exports.getNextSequence = function getNextSequence(name,cb) {
 		cb(doc.seq);
 	});
 }
+
+
 //查找同名图片
 exports.findSameImg = function(name,res,next) {
 	imgModel.find({'name':name},function(err,imgs){
@@ -90,7 +102,7 @@ exports.wall = function(cb) {
 		}
 	});
 }
-
+//获取最新上传的图片
 exports.new = function(cb) {
 	imgModel.find({},{},{limit:1,sort:{'createAt':-1}},function(err,results){
 		if(err) throw err;

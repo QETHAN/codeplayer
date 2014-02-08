@@ -66,9 +66,43 @@ exports.upload = function(req,res){
 					if(err) {
 						console.log(err);
 						return;
+					} else {
+						res.json({'upload':'success'});
+						res.end();
 					}
 				});
 			});
 		});
 	});
 };
+
+exports.admin = function(req,res){
+	res.render('admin');
+}
+
+exports.addUser = function(req,res){
+	var name = req.body.name;
+	var inviteCode = req.body.inviteCode;
+	var user = new db.userModel({'name':name,'code':inviteCode,'createAt':new Date().getTime()});
+	user.save(function(err,doc){
+		if(err) throw err;
+		if(doc) {
+			console.log(doc);
+			res.render('admin',{'status':'ok'});
+		}
+	});
+}
+
+exports.checkInviteCode = function(req,res){
+	var code = req.body.code;
+	db.userModel.find({'code':code},{},{},function(err,doc){
+		if(err) throw err;
+		if(doc){
+			console.log('----222-->'+req.session);
+			req.session.hasInviteCode = true;
+			res.send({redirect: '/hello'});
+		} else {
+			res.redirect('back');
+		}
+	});
+}

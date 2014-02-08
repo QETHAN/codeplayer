@@ -62,7 +62,7 @@ document.ready(function() {
 				nodata.style.display = 'none';
 				loading.style.display = 'block';
 				var xhr = new XMLHttpRequest();
-				xhr.open('GET','http://127.0.0.1:3000/page/'+(parseInt(pagenum.value,10)+1)+'/last/'+lastid.value);
+				xhr.open('GET','http://127.0.0.1:3000/page/'+(parseInt(pagenum.value,10)+1)+'/last/'+lastid.value,true);
 				xhr.onload = function() {
 					var data = JSON.parse(xhr.responseText);
 					if(!data) {

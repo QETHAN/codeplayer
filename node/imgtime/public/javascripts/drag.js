@@ -39,7 +39,7 @@ document.ready(function(){
 	function checkSameImg(file,formData) {
 		console.log(file.name);
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET','http://127.0.0.1:3000/checkSameImg/'+file.name);
+		xhr.open('GET','http://127.0.0.1:3000/checkSameImg/'+file.name,true);
 		xhr.onload = function(){
 			var data = JSON.parse(this.responseText);
 			if(data.code == 201) {
@@ -50,12 +50,11 @@ document.ready(function(){
 			} else {
 				error.style.display = 'none';
 				failFlag = false;
-				xhr = null;
 				previewfile(file);
 				//上传图片
 				if(tests.formdata) {
-					xhr = new XMLHttpRequest();
-					xhr.open('POST','http://127.0.0.1:3000/imgtime');
+					var xhr = new XMLHttpRequest();
+					xhr.open('POST','http://127.0.0.1:3000/imgtime',true);
 					xhr.onload = function() {
 						progress.value = progressNum.textContent = 100;
 					}

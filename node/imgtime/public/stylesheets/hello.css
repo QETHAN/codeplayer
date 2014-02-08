@@ -37,7 +37,13 @@ body {
     padding: 20px;
     border:1px solid #3c9f9c;
 }
-
+#invite {
+    background-color: #073953;
+    font-size: 26px;
+    color: #3c9f9c;
+    padding: 20px;
+    border:1px solid #3c9f9c;
+}
 .wall {
     float: right;
     width: 800px;
