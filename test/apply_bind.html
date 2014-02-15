@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>apply bind test</head>
+    <script>
+        function test(fn){
+            fn.apply(undefined);
+        }
+
+        test((function(){
+           console.log(this.value);
+        }).bind({value:4}));
+
+//        结果：4
+    </script>
+</html>

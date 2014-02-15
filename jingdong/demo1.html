@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>tuan.jd.com</title>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #cccccc;
+        }
+        ol,ul {margin:0;padding:0;list-style:none;}
+        .clearfix:before,
+        .clearfix:after {
+            content: '';
+            display: table;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        .brand {
+            background-color: #b3b3b3;
+            width: 1000px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .brand li {
+            width: 326px;
+            height: 325px;
+            z-index: 5;
+            margin: 0 10px 10px 0;
+            float: left;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            position: relative;
+            transition: border-color .3s;
+            -webkit-transition: border-color .3s;
+            background: #fff;
+        }
+        .brand li.third {margin-right: 0;}
+        .brand li:hover {
+            border: 1px solid #e33b3d;
+            border-bottom: 5px solid #e33b3d;
+        }
+    </style>
+</head>
+<body>
+    <ul class="brand">
+        <li></li>
+        <li></li>
+        <li class="third"></li>
+        <li></li>
+        <li></li>
+        <li class="third"></li>
+    </ul>
+</body>
+</html>
