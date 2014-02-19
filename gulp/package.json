@@ -1,0 +1,16 @@
+{
+  "name": "gulp-test",
+  "version": "0.0.1",
+  "description": "gulp test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "express": "~3.4.8",
+    "connect-livereload": "~0.3.2",
+    "tiny-lr": "0.0.5"
+  }
+}
