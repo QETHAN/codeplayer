@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>HTML5 WebSocket / Geolocation 追踪器</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadDemo()">
+
+    <h1>HTML5 WebSocket / Geolocation 追踪器</h1>
+
+    <div><strong>Geolocation</strong>: <p id="geoStatus">你的浏览器不支持HTML5 Geolocation</p></div>
+
+    <div><strong>WebSocket</strong>: <p id="socketStatus">你的浏览器不支持HTML5 Web Sockets</p></div>
+
+</body>
+<script>
+    function loadDemo(){
+        if(window.WebSocket){
+            url = "ws://localhost:3000";
+
+            ws = new WebSocket(url);
+
+            ws.onopen = function(){
+                updateSocketStatus("连接已建立");
+            }
+
+            ws.onmessage = function(e){
+                updateSocketeStatus("更新位置数据：" + dataReturned(e.data));
+            }
+        }
+    }
+
+    var geo;
+
+    if(navigator.geolocation){
+
+        geo = navigator.geolocation;
+
+        updateGeolocationStatus("浏览器支持HTML5 Geolocation");
+
+    }
+
+    geo.watchPosition(updateLocation,handleLocationError,{maximumAge:20000});//每20s更新一次
+
+    function updateLocation(position){
+
+        var latitude = position.coords.latitude;
+
+        var longitude = position.coords.longitude;
+
+        var timestamp = position.timestamp;
+
+        updateGeolocationStatus("位置更新时间：" + timestamp);
+
+        var toSend = JSON.stringify([myId,latitude,longitude]);
+
+        sendMyLocation(toSend);
+
+    }
+
+    function sendMyLocation(newLocation){
+
+        if(ws){
+
+            ws.send(newLocation);
+
+        }
+
+    }
+</script>
+</html>

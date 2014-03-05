@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图片窗口响应宽高</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-transition: all 1s;
+            transition: all 1s;
+        }
+
+    </style>
+</head>
+<body>
+    <img id="imgId" src="lina.jpg">
+<script>
+    var winWidth = 0,
+        winHeight = 0,
+        imgWidth = 0,
+        imgHeight = 0,
+        img = null;
+
+    var imgEle = document.getElementById('imgId');
+
+    var debounce = function (func, threshold, execAsap) {
+        var timeout;
+        return function debounced () {
+            var obj = this, args = arguments;
+            function delayed () {
+                if (!execAsap)
+                    func.apply(obj, args);
+                timeout = null;
+            };
+            if (timeout)
+                clearTimeout(timeout);
+            else if (execAsap)
+                func.apply(obj, args);
+            timeout = setTimeout(delayed, threshold || 100);
+        };
+    }
+
+    img = new Image();
+    img.src = 'lina.jpg';
+    img.onload = function(){
+        imgWidth = img.width;
+        imgHeight = img.height;
+    }
+
+    window.onresize = debounce(function(){
+        winWidth = window.innerWidth || document.documentElement.clientWidth;
+        winHeight = window.innerHeight || document.documentElement.clientHeight;
+        console.log(winWidth,winHeight,imgWidth,imgHeight);
+        if(winWidth/winHeight >= imgWidth/imgHeight){
+            var newHeight = parseInt(winWidth/imgWidth*imgHeight);
+            var imgTop = parseInt((winHeight-imgHeight)/2,10);
+            var css = 'width:'+winWidth+'px;'+'height:'+newHeight+'px;'+'top:'+imgTop+'px;'+'left:""';
+            imgEle.style.cssText = css;
+            console.log(css);
+        }
+    },100,true);
+
+
+
+
+</script>
+</body>
+</html>
